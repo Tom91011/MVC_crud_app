@@ -12,7 +12,7 @@ const ArticleSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: 'public',
+    default: 'private',
     enum: ['public', 'private']
   },
   user: {   
