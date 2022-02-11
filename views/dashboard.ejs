@@ -13,6 +13,19 @@
 
 <body>
   <div class="container">
+    <h1>ID: <%= userId %></h1>
+    <h1>Username: <%= name %></h1>
+    <h1>email: <%= email %></h1>
+    <% articles.forEach(function(article) { %>
+      <ul>      
+          <% if(article.user == userId) { %>
+          <li> <%= article.title %></li>
+          <li> <%= article.content %></li>
+          <% } %>
+      
+      </ul>
+     <% }); %> 
+
     <div>
       <form action="/new-article" method="post">
         <div class="form-group">
