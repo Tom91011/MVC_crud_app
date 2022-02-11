@@ -10,12 +10,16 @@
   <title>Logged in</title>
 </head>
 
-
 <body>
   <div class="container">
     <h1>ID: <%= userId %></h1>
     <h1>Username: <%= name %></h1>
     <h1>email: <%= email %></h1>
+    <div class="compose-container">
+      <a href="/compose">
+        <button>Create New Article</button>
+      </a>
+    </div>
     <% articles.forEach(function(article) { %>
       <ul>      
           <% if(article.user == userId) { %>

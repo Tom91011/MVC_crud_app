@@ -35,6 +35,7 @@ app.use(passport.session());
 
 app.use('/', require('./routes/login'))
 app.use('/', require('./routes/dashboard'))
+app.use('/', require('./routes/compose'))
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log("Server connected to port: " + PORT))

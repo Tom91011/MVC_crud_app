@@ -12,10 +12,9 @@ const dashboardView = async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-  }
+  }  
+};
   
-  };
-  
-  module.exports = {
-    dashboardView,
-  };
+module.exports = {
+  dashboardView,
+};
