@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 dotenv.config();
 const session = require('express-session');
+const MongoStore = require('connect-mongo')//needed to store the session in MongoDB
 const passport = require('passport')
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
@@ -24,14 +25,16 @@ app.use('/public', express.static(path.join(__dirname, './public')))
 app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret:'oneboy',
-    saveUninitialized: true,
-    resave: true
+    saveUninitialized: false,
+    resave: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_DATABASE_ACCESS })
   }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', require('./routes/login'))
+app.use('/', require('./routes/dashboard'))
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log("Server connected to port: " + PORT))

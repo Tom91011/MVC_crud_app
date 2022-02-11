@@ -12,6 +12,7 @@ const loginCheck = passport => {
 
       User.findOne({ email: email })
         .then((user) => {
+          // console.log(user);
           if (!user) {
             console.log("wrong email");
             return done();
