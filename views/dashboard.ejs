@@ -39,7 +39,9 @@
           <% } %>  
           <% if(article.user == userId) {%>
             <button>Delete</button>
-            <button>Edit</button>
+            <a href=<%= `/edit/${article.id}` %>>
+              <button>Edit</button>
+            </a>
           <% } %>
         </div>      
       <% }) %> 
