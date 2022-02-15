@@ -1,10 +1,9 @@
 const express = require("express");
 const { protectRoute } = require("../auth/protect");
-const { addArticle } = require("../controllers/articleController")
-const { composeView } = require("../controllers/composeController")
+const { addArticle } = require("../controllers/newArticleController")
+const { articleView } = require("../controllers/articleController")
 const router = express.Router();
 
-
-router.post("/compose", protectRoute, composeView)
+router.get("/article/:id", protectRoute, articleView)
 
 module.exports = router;

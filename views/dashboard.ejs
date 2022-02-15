@@ -21,17 +21,19 @@
       </a>
     </div>
     <% articles.forEach(function(article) { %>
-      <ul>      
-          <% if(article.user == userId) { %>
-          <li> <%= article.title %></li>
-          <li> <%= article.content %></li>
-          <li> <%= article.status %></li>
-          <% } %>
-      
-      </ul>
+      <a href=<%= `/article/${article.id}` %>>
+        <ul>      
+            <% if(article.user == userId || article.status == "public") { %>
+            <li> <%= article.user%></li>
+            <li> <%= article.title %></li>
+            <li> <%= article.content %></li>
+            <li> <%= article.status %></li>
+            <% } %>
+        
+        </ul>
+      </a>
      <% }); %> 
-
-</div>
+  </div>
 <div>
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 </div>
