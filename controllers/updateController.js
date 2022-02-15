@@ -3,6 +3,7 @@ const Article = require("../models/Article");
 const session = require("express-session")
 
 const updateArticle = (req, res) => {
+    
     const idToBeUpdated = req.body.articleId
     let status = "private"
     console.log(req.body);

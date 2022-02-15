@@ -1,11 +1,12 @@
 const Article = require("../models/Article");
 
 const editView =  (req, res) => {
+    console.log(req.user);
     const typedTitle = req.params.id
     Article.find({}, (err, foundItems) => {
         foundItems.forEach((article) => {
             if(article.id === req.params.id ) {
-                if(article.status === "public" || req.user._id.valueOf() === article.user.valueOf()) {
+                if(req.user._id.valueOf() === article.user.valueOf()) {
                     
                     let checkBoxStatus = "checked"
 
