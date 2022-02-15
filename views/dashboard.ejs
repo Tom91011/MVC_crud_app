@@ -20,23 +20,33 @@
         <button>Create New Article</button>
       </a>
     </div>
-    <% articles.forEach(function(article) { %>
-      <a href=<%= `/article/${article.id}` %>>
-        <ul>      
-            <% if(article.user == userId || article.status == "public") { %>
-            <li> <%= article.user%></li>
-            <li> <%= article.title %></li>
-            <li> <%= article.content %></li>
-            <li> <%= article.status %></li>
+   
+      <% articles.forEach(function(article) { %>
+        <% if(article.user == userId || article.status == "public") { %>
+          <% if(article.user == userId) {%>
+            <div class="article-container own-article">
+            <% } else { %>
+              <div class="article-container">
             <% } %>
-        
-        </ul>
-      </a>
-     <% }); %> 
-  </div>
-<div>
+                <a href=<%= `/article/${article.id}` %>>
+                  <ul>                
+                      <li> <%= article.user%></li>
+                      <li> <%= article.title %></li>
+                      <li> <%= article.content %></li>
+                      <li> <%= article.status %></li>                          
+                  </ul>
+                </a>
+          <% } %>  
+          <% if(article.user == userId) {%>
+            <button>Delete</button>
+            <button>Edit</button>
+          <% } %>
+        </div>      
+      <% }) %> 
+    </div>
+
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
-</div>
+
 </body>
 
 </html>

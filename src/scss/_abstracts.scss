@@ -6,3 +6,28 @@ h1 {
 .border {
     border: hotpink solid 1px;
 }
+
+.article-container {
+    border: hotpink solid 1px;
+    margin: 10px;
+    // text-decoration: none; 
+    button {
+        margin: 5px;
+        padding: 5px 15px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.own-article {
+    background-color: green;
+    color: yellow;
+    :visited { 
+        text-decoration: none;
+        color: yellow;
+    }
+}
+
