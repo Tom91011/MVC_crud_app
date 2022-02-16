@@ -3,7 +3,6 @@ const Article = require("../models/Article");
 const session = require("express-session")
 
 const updateArticle = (req, res) => {
-    
     const idToBeUpdated = req.body.articleId
     let status = "private"
     console.log(req.body);
@@ -26,6 +25,21 @@ const updateArticle = (req, res) => {
     res.redirect("/dashboard")
 }
 
+const deleteArticle = (req, res) => {
+    const idToBedeleted = req.body.articleId
+    console.log("Deleted");
+    Article.findByIdAndDelete(idToBedeleted, (err, docs) => {
+        if (err) {
+            console.log(err)
+        }
+        else {
+            console.log("Deleted : ", docs);
+        }
+    })
+    res.redirect("/dashboard")
+}
+
 module.exports = {
-    updateArticle
+    updateArticle,
+    deleteArticle
 }

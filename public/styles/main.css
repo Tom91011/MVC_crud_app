@@ -1,33 +1,64 @@
-h1 {
-  background-color: red;
-  color: yellow;
+@font-face {
+  font-family: "Barlow", sans-serif;
+}
+.article-container:hover {
+  color: #b4cfb0;
 }
 
-.border {
-  border: hotpink solid 1px;
-}
-
-.article-container {
-  border: hotpink solid 1px;
+.own-article {
+  background-color: #b4cfb0;
+  padding: 20px;
   margin: 10px;
 }
-.article-container button {
-  margin: 5px;
-  padding: 5px 15px;
+.own-article:hover {
+  background-color: black;
+  color: #b4cfb0;
+}
+.own-article ul {
+  list-style-type: none;
+  color: inherit;
+}
+.own-article ul:hover {
+  color: #b4cfb0;
+}
+.own-article :visited {
+  text-decoration: none;
 }
 
 a {
   text-decoration: none;
   color: black;
 }
+a:hover {
+  color: #b4cfb0;
+}
 
 .own-article {
-  background-color: green;
-  color: yellow;
+  animation-duration: 1s;
+  animation-name: slidein;
 }
-.own-article :visited {
-  text-decoration: none;
-  color: yellow;
+
+@keyframes slidein {
+  from {
+    padding: 0;
+  }
+}
+body {
+  font-family: "barlow";
+  font-size: 16px;
+  background-color: #e5e3c9;
+}
+
+button {
+  background-color: #94b49f;
+  border: 0;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 10px 25px;
+}
+button:hover {
+  background-color: #789395;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

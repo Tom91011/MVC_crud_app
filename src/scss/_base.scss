@@ -1,0 +1,19 @@
+body {
+    font-family: $barlow;
+    font-size: 16px;
+    background-color: $primaryBeige;
+    // color: black;
+}
+
+button {
+    background-color: $oliveGreen;
+    border: 0;
+    border-radius: 3px;
+    margin: 5px;
+    padding: 10px 25px;
+    &:hover {
+        background-color: $darkOliveGreen;
+        cursor: pointer;
+    }
+}
+

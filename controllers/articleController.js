@@ -7,7 +7,9 @@ const articleView =  (req, res) => {
             if(article.id === req.params.id ) {
                 if(article.status === "public" || req.user._id.valueOf() === article.user.valueOf()) {
                     res.render("article", {
-                        userId: article.user,
+                        userId: req.user.id.valueOf(),
+                        authorId: article.user,
+                        articleId: article._id,
                         title: article.title,
                         content: article.content,
                         date: article.date

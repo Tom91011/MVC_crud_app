@@ -15,9 +15,23 @@
     <button>Dashboard</button>
   </a>
   <h1><%= title %></h1>
-  <h2><%= userId %></h2>
+  <h2>Author: <%= authorId %></h2>
+  <h2>User: <%= userId %></h2>
   <h2><%= date %></h2>
   <p><%= content %></p>
+
+  <% if(authorId == userId) {%>
+    <div class="buttons">
+      <form action="/delete" method="post">
+        <a href=<%= `/edit/${articleId}` %>>
+          <button type="submit" name="articleId" value=<%= articleId %> >Delete</button>
+        </a>
+      </form>
+      <a href=<%= `/edit/${articleId}` %>>
+        <button>Edit</button>
+      </a>
+    </div>
+  <% } %>
 
 </body>
 

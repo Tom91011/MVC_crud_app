@@ -5,12 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="stylesheet" href="/public/styles/main.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
   <title>Logged in</title>
 </head>
 
 <body>
+  
   <div class="container">
     <h1>ID: <%= userId %></h1>
     <h1>Username: <%= name %></h1>
@@ -22,30 +25,26 @@
     </div>
    
       <% articles.forEach(function(article) { %>
+        
         <% if(article.user == userId || article.status == "public") { %>
+          <a href=<%= `/article/${article.id}` %>>
           <% if(article.user == userId) {%>
-            <div class="article-container own-article">
-            <% } else { %>
-              <div class="article-container">
-            <% } %>
-                <a href=<%= `/article/${article.id}` %>>
-                  <ul>                
-                      <li> <%= article.user%></li>
-                      <li> <%= article.title %></li>
-                      <li> <%= article.content %></li>
-                      <li> <%= article.status %></li>                          
-                  </ul>
-                </a>
-          <% } %>  
-          <% if(article.user == userId) {%>
-            <button>Delete</button>
-            <a href=<%= `/edit/${article.id}` %>>
-              <button>Edit</button>
+            
+              <div class="article-container own-article">
+                <% } else { %>
+                  <div class="article-container">
+                    <% } %>                
+                      <ul>                
+                          <li> <%= article.user%></li>
+                          <li> <%= article.title %></li>
+                          <li> <%= article.content %></li>
+                          <li> <%= article.status %></li>                          
+                      </ul>               
+                    <% } %>  
+                   </div>      
+                <% }) %> 
+              </div>
             </a>
-          <% } %>
-        </div>      
-      <% }) %> 
-    </div>
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 
