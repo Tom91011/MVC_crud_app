@@ -1,28 +1,53 @@
 @font-face {
   font-family: "Barlow", sans-serif;
 }
+.main-container {
+  display: flex;
+}
+
+.articles-container-outer {
+  width: 50%;
+}
+
+.none {
+  display: none;
+}
+
+.article-preview {
+  position: fixed;
+  top: 150px;
+  right: 50px;
+  width: 600px;
+  height: 500px;
+  border: solid hotpink 1px;
+}
+
+.article-container {
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
 .article-container:hover {
+  background-color: black;
   color: #b4cfb0;
+}
+.article-container ul {
+  list-style-type: none;
+  color: inherit;
+}
+.article-container ul:hover {
+  color: #b4cfb0;
+}
+.article-container :visited {
+  text-decoration: none;
+}
+
+.other-user-article {
+  background-color: #789395;
 }
 
 .own-article {
   background-color: #b4cfb0;
-  padding: 20px;
-  margin: 10px;
-}
-.own-article:hover {
-  background-color: black;
-  color: #b4cfb0;
-}
-.own-article ul {
-  list-style-type: none;
-  color: inherit;
-}
-.own-article ul:hover {
-  color: #b4cfb0;
-}
-.own-article :visited {
-  text-decoration: none;
 }
 
 a {
@@ -33,14 +58,21 @@ a:hover {
   color: #b4cfb0;
 }
 
-.own-article {
+.article-container {
   animation-duration: 1s;
   animation-name: slidein;
 }
 
 @keyframes slidein {
   from {
+    margin-left: 100%;
+    width: 300%;
     padding: 0;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+    padding: 20px;
   }
 }
 body {
@@ -52,8 +84,8 @@ body {
 button {
   background-color: #94b49f;
   border: 0;
-  border-radius: 3px;
-  margin: 5px;
+  border-radius: 10px;
+  margin: 5px 0;
   padding: 10px 25px;
 }
 button:hover {

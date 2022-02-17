@@ -23,31 +23,44 @@
         <button>Create New Article</button>
       </a>
     </div>
-   
-      <% articles.forEach(function(article) { %>
-        
+
+    <div class="main-container">  
+      <div class="articles-container-outer">
+      <% articles.forEach(function(article) { %>        
         <% if(article.user == userId || article.status == "public") { %>
-          <a href=<%= `/article/${article.id}` %>>
-          <% if(article.user == userId) {%>
-            
+          <div class="article-container-inner">
+            <a href=<%= `/article/${article.id}` %>>
+            <% if(article.user == userId) {%>            
               <div class="article-container own-article">
-                <% } else { %>
-                  <div class="article-container">
-                    <% } %>                
-                      <ul>                
-                          <li> <%= article.user%></li>
-                          <li> <%= article.title %></li>
-                          <li> <%= article.content %></li>
-                          <li> <%= article.status %></li>                          
-                      </ul>               
-                    <% } %>  
-                   </div>      
-                <% }) %> 
-              </div>
-            </a>
+                <h3>Own Article</h3>
+            <% } else { %>
+              <div class="article-container other-user-article">
+                <h3>Author: <%= article.user%></h3>
+              <% } %>                
+                  <ul>                
+                    <li> <%= article.user%></li>
+                    <li> <%= article.title %></li>
+                    <li> <%= article.content %></li>
+                    <li> <%= article.status %></li>                          
+                    <li> <%= article.date %></li>     
+                  </ul>                                      
+              </div>    
+            </a> 
+          
+          <div class="article-preview none">
+            <h1>Preview</h1>
+            <h2><%= article.content %></h2>
+          </div>   
+        </div>           
+        <% } %> 
+      <% }) %> 
+    </div> 
+        
+  </div>
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 
 </body>
+<script type="module" src="public/client/client.js"></script>
 
 </html>
