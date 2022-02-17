@@ -37,6 +37,7 @@ app.use('/', require('./routes/login'))
 app.use('/', require('./routes/dashboard'))
 app.use('/', require('./routes/compose'))
 app.use('/', require('./routes/edit'))
+app.use('/', require('./routes/article'))
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, console.log("Server connected to port: " + PORT))

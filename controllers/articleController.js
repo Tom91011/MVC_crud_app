@@ -1,4 +1,5 @@
 const Article = require("../models/Article");
+const Comment = require("../models/Comment")
 
 const articleView =  (req, res) => {
     const typedTitle = req.params.id
@@ -21,7 +22,20 @@ const articleView =  (req, res) => {
         })    
     })    
 };
+
+const newComment = (req, res) => {
+    let {content, articleId} = req.body
+    const commentPoster = req.user._id
+    const newComment = new Comment ({
+        content,
+        articleId,
+        commentPoster
+    })
+    newComment.save()
+    res.redirect("/dashboard")
+  }
   
 module.exports = {
     articleView,
+    newComment
 };

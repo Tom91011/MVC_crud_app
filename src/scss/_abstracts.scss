@@ -32,6 +32,27 @@ $barlow: 'barlow';
 }
 
 .article-container {
+    animation-duration: 1s;
+    animation-name: slidein;
+    // animation-iteration-count: infinite;
+}
+  
+@keyframes slidein {
+from {
+    margin-left: 100%;
+    width: 300%;
+    padding: 0;
+}
+
+to {
+    margin-left: 0%;
+    width: 100%;
+    padding: 20px;
+}
+}
+
+
+.article-container-inner {
     padding: 20px;
     margin: 10px 0;
     border-radius: 10px;
@@ -71,24 +92,6 @@ a {
     }
 }
 
-.article-container {
-    animation-duration: 1s;
-    animation-name: slidein;
-  }
-  
-  @keyframes slidein {
-    from {
-      margin-left: 100%;
-      width: 300%;
-      padding: 0;
-    }
-  
-    to {
-      margin-left: 0%;
-      width: 100%;
-      padding: 20px;
-    }
-  }
 
   
 

@@ -15,5 +15,6 @@ const dashboardView = async (req, res) => {
 };
   
 module.exports = {
-  dashboardView,
+  dashboardView
 };
+

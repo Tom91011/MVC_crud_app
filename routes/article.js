@@ -1,2 +1,7 @@
 const express = require("express");
-const { protectRoute } = require("../auth/protect");
+const { newComment } = require("../controllers/articleController")
+const router = express.Router();
+
+router.post("/comment", newComment)
+
+module.exports = router;
