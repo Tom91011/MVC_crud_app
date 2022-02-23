@@ -19,11 +19,24 @@ const ArticleSchema = new mongoose.Schema({
      type: mongoose.Schema.Types.ObjectId,    
      required: true,
       },
+  userName: {   
+    type: String,    
+    required: true,
+      },
   date: {
     type: Date,
     default: Date.now,
   },
- 
+  comments: 
+    [{
+      commentPoster: mongoose.Schema.Types.ObjectId, 
+      commentPosterName: String,
+      content: String,
+      date: {
+        type: Date,
+        default: Date.now,
+      },
+    }]   
 });
 
 const Article = mongoose.model("Article", ArticleSchema);

@@ -10,7 +10,6 @@ const passport = require('passport')
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
 
-
 // Mongo DB conncetion
 const database = process.env.MONGODB_DATABASE_ACCESS;
 mongoose

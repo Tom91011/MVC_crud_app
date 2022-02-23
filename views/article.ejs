@@ -14,12 +14,6 @@
   <a href="/dashboard">
     <button>Dashboard</button>
   </a>
-  <h1><%= title %></h1>
-  <h2>Author: <%= authorId %></h2>
-  <h2>User: <%= userId %></h2>
-  <h2><%= date %></h2>
-  <p><%= content %></p>
-
   <% if(authorId == userId) {%>
     <div class="buttons">
       <form action="/delete" method="post">
@@ -31,16 +25,32 @@
         <button>Edit</button>
       </a>
     </div>
-    <div class="comment">
+    <% } %>
+  <h1><%= title %></h1>
+  <h2>Author: <%= authorId %></h2>
+  <h2>User: <%= userId %></h2>
+  <h2>Date Created: <%= date %></h2>
+  <p><%= content %></p>
+  <p> Comments: <%= comments.length %></p>
+
+  <div class="comments">
+    <div class="write-comment">
       <form action="/comment" method="post">
-        <textarea name="content" cols="150" rows="12"></textarea>
-        
-          <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>
-        
+        <textarea name="content" cols="150" rows="12"></textarea>        
+          <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>        
       </form>
     </div> 
-  <% } %>
-
+    <div class="comments">
+      <h1>Comments</h1>
+      <% comments.forEach(function(comment) { %>
+        <div class="comment">
+          <h2> <%= comment.commentPosterName %></h2>
+          <h2> <%= comment.date %></h2>
+          <h2> <%= comment.content %></h2>
+      </div>
+      <% }) %>
+    </div>
+    
+  </div>
 </body>
-
 </html>

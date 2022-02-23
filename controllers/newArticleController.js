@@ -8,11 +8,13 @@ const addArticle = (req, res) => {
     status = "public"
     
     const user = req.user._id
+    const userName = req.user.name
     const newArticle = new Article ({
         title,
         content,
         status,
-        user
+        user,
+        userName
     })
     newArticle.save()
     res.redirect("/dashboard")

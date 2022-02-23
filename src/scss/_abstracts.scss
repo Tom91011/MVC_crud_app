@@ -34,6 +34,7 @@ $barlow: 'barlow';
 .article-container {
     animation-duration: 1s;
     animation-name: slidein;
+    // padding: 20px;;
     // animation-iteration-count: infinite;
 }
   
@@ -41,19 +42,19 @@ $barlow: 'barlow';
 from {
     margin-left: 100%;
     width: 300%;
-    padding: 0;
+    // padding: 10px;
 }
 
 to {
     margin-left: 0%;
     width: 100%;
-    padding: 20px;
+    // padding: 20px;
 }
 }
 
 
 .article-container-inner {
-    padding: 20px;
+    // padding: 20px;
     margin: 10px 0;
     border-radius: 10px;
     

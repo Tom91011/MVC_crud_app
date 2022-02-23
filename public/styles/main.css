@@ -31,16 +31,13 @@
   from {
     margin-left: 100%;
     width: 300%;
-    padding: 0;
   }
   to {
     margin-left: 0%;
     width: 100%;
-    padding: 20px;
   }
 }
 .article-container-inner {
-  padding: 20px;
   margin: 10px 0;
   border-radius: 10px;
 }
@@ -91,6 +88,12 @@ button {
 button:hover {
   background-color: #789395;
   cursor: pointer;
+}
+
+.comment {
+  border: solid #b4cfb0 1px;
+  padding: 5px;
+  margin: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */

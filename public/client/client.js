@@ -14,10 +14,6 @@ articlesEl.forEach(article => {
         const articlePreview = currentArticle.querySelector(".article-preview")
         articlePreview.classList.add("none")
     })
-
-        
-
-
 })
 
 // articlesEl.addEventListener("mouseover", (e) => {

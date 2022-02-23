@@ -38,12 +38,22 @@
                 <h3>Author: <%= article.user%></h3>
               <% } %>                
                   <ul>                
-                    <li>Author: <%= article.user%></li>
+                    <li>Author: <%= article.userName%></li>
                     <li>Article: <%= article.id %></li>
                     <li>Title: <%= article.title %></li>
                     <li>Content: <%= article.content %></li>
                     <li>Status: <%= article.status %></li>                          
-                    <li>Date Posted: <%= article.date %></li>     
+                    <li>Date Posted: <%= article.date %></li> 
+                  
+                    <li>Comments: <%= article.comments.length%></li>  
+                    <% if(article.comments.length > 0)  {%>
+                      <div class="latest-comment">Latest Comment 
+                        <li><%= article.comments[article.comments.length-1].date %></li>
+                        <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
+                        <li><%= article.comments[article.comments.length-1].content %></li>
+                    </div> 
+                    <% } %>  
+                  
                   </ul>                                      
               </div>    
             </a> 
