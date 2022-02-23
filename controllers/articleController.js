@@ -1,6 +1,6 @@
 const Article = require("../models/Article")
 
-const articleView = (req, res) => {
+const articleView = async (req, res) => {
     const typedTitle = req.params.id
    
     function findArticle() {    
@@ -8,7 +8,6 @@ const articleView = (req, res) => {
             
             foundItems.forEach( (article) => {
                 if(article.id === typedTitle ) {
-                    console.log(article);
                     if(
                         article.status === "public" 
                         || req.user._id.valueOf() === article.user.valueOf()
@@ -16,7 +15,8 @@ const articleView = (req, res) => {
                         function renderArticle () {
                             res.render("article", {
                                 userId: req.user.id.valueOf(),
-                                authorId: article.userName,
+                                authorId: article.user,
+                                authorName: article.userName,
                                 articleId: article._id,
                                 title: article.title,
                                 content: article.content,

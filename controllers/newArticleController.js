@@ -1,6 +1,7 @@
 const passport = require("passport");
 const Article = require("../models/Article");
 const session = require("express-session")
+const marked = require('marked')
 
 const addArticle = (req, res) => {
     let {title, content, status, checkbox} = req.body
@@ -9,6 +10,7 @@ const addArticle = (req, res) => {
     
     const user = req.user._id
     const userName = req.user.name
+    content = marked.parse(content)
     const newArticle = new Article ({
         title,
         content,

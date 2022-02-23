@@ -1,6 +1,7 @@
 const passport = require("passport");
 const Article = require("../models/Article");
 const session = require("express-session")
+const marked = require('marked')
 
 const updateArticle = (req, res) => {
     const idToBeUpdated = req.body.articleId
@@ -10,7 +11,7 @@ const updateArticle = (req, res) => {
     status = "public"
     Article.findByIdAndUpdate(idToBeUpdated, {
         title: req.body.title,
-        content: req.body.content,
+        content: marked.parse(req.body.content),
         status: status
     },
     (err, docs) => {

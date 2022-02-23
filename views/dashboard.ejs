@@ -41,7 +41,7 @@
                     <li>Author: <%= article.userName%></li>
                     <li>Article: <%= article.id %></li>
                     <li>Title: <%= article.title %></li>
-                    <li>Content: <%= article.content %></li>
+                    <li>Content: <%- article.content %></li>
                     <li>Status: <%= article.status %></li>                          
                     <li>Date Posted: <%= article.date %></li> 
                   
@@ -60,7 +60,7 @@
           
           <div class="article-preview none">
             <h1>Preview</h1>
-            <h2><%= article.content %></h2>
+            <h2><%- article.content %></h2>
           </div>   
         </div>           
         <% } %> 
