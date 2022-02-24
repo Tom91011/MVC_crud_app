@@ -1,3 +1,7 @@
+.hide {
+    opacity: 0;
+}
+
 body, html {
     font-family: $barlow;
     font-size: 16px;
@@ -9,10 +13,37 @@ body, html {
     color: white;
 }
 
+body::-webkit-scrollbar {
+    width: 15px;
+  }
+
+body::-webkit-scrollbar-track{
+    // box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    
+    background: $primaryBeige; 
+    border-radius: 10px;
+    animation-name: show-scrollbar;
+    animation-duration: 2s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: $orange; 
+  }
+
+@keyframes show-scrollbar {
+    from {background: white}
+    to {background: black;}
+
+}
+
 a:visited { 
     text-decoration: none; 
     color: white; 
-   }
+}
 
 
 

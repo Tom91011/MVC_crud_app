@@ -1,6 +1,10 @@
 @font-face {
   font-family: "Barlow", sans-serif;
 }
+.hide {
+  opacity: 0;
+}
+
 body, html {
   font-family: "barlow";
   font-size: 16px;
@@ -12,12 +16,40 @@ body, html {
   color: white;
 }
 
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ecdbba;
+  border-radius: 10px;
+  animation-name: show-scrollbar;
+  animation-duration: 2s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #c84b31;
+}
+
+@keyframes show-scrollbar {
+  from {
+    background: white;
+  }
+  to {
+    background: black;
+  }
+}
 a:visited {
   text-decoration: none;
   color: white;
 }
 
 .loading-screen {
+  font-size: 2em;
   height: 100%;
   width: 100%;
   background-color: #2d4263;
@@ -28,9 +60,8 @@ a:visited {
   transform: translateY(0);
   overflow: hidden;
   animation-name: hideLoader;
-  animation-duration: 0.5s;
-  animation-delay: 0.2;
-  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
+  animation-delay: 1.5s;
   animation-fill-mode: forwards;
 }
 .loading-screen h1 {
@@ -39,6 +70,9 @@ a:visited {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.loading-screen h1 span {
+  letter-spacing: 10px;
 }
 
 @keyframes hideLoader {
@@ -70,10 +104,25 @@ button:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  opacity: 0;
+  animation-name: show-articles;
+  animation-duration: 1s;
+  animation-delay: 2.3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 .articles-container .article-container {
   background-color: #ecdbba;
   margin: 10px;
+}
+
+@keyframes show-articles {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

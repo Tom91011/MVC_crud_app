@@ -1,10 +1,20 @@
 
 .articles-container {
     @include flex-row(column, flex-start);
+    opacity: 0;
+    animation-name: show-articles;
+    animation-duration: 1s;
+    animation-delay: 2.3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
     .article-container {
         background-color: $primaryBeige;
         margin: 10px;
     }
 }
 
+@keyframes show-articles {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
 
