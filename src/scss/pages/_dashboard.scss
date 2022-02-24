@@ -1,0 +1,10 @@
+
+.articles-container {
+    @include flex-row(column, flex-start);
+    .article-container {
+        background-color: $primaryBeige;
+        margin: 10px;
+    }
+}
+
+

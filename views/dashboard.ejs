@@ -13,56 +13,56 @@
 </head>
 
 <body>
+  <div class="wrapper">
+    <section class="loading-screen">
+      <h1>Welcome to your blog</h1>
+    </section>
   <%- include("partials/account") -%>
     
-  <div class="container">
+  
     <div class="compose-container">
       <a href="/compose">
         <button>Create New Article</button>
       </a>
     </div>
-
-    <div class="main-container">  
-      <div class="articles-container-outer">
-        <% articlesToShow.forEach((article) => { %> 
-              <div class="article-container-inner">
-                <a href=<%= `/article/${article.id}` %> >
-                  <div <% if(article.user === userId) {%> 
-                    class="article-container own-article"
-                    <% } else { %>
-                      class="article-container other-user-article"
-                    <% } %> >
+    <div class="articles-container">
+      <% articlesToShow.forEach((article) => { %> 
+            <div class="article-container">
+              <a href=<%= `/article/${article.id}` %> >
+                <div <% if(article.user === userId) {%> 
+                  class="article-container own-article"
+                  <% } else { %>
+                    class="article-container other-user-article"
+                  <% } %> >
+                  
+                    <ul>
+                      <li>Author: <%= article.userName%></li>
+                      <li>Article: <%= article.id %></li>
+                      <li>Title: <%= article.title %></li>
+                      <li>Content: <%- article.content %></li>
+                      <li>Status: <%= article.status %></li>                          
+                      <li>Date Posted: <%= article.date %></li> 
                     
-                      <ul>
-                        <li>Author: <%= article.userName%></li>
-                        <li>Article: <%= article.id %></li>
-                        <li>Title: <%= article.title %></li>
-                        <li>Content: <%- article.content %></li>
-                        <li>Status: <%= article.status %></li>                          
-                        <li>Date Posted: <%= article.date %></li> 
-                      
-                        <li>Comments: <%= article.comments.length%></li>  
-                        <% if(article.comments.length > 0)  {%>
-                          <div class="latest-comment">Latest Comment 
-                            <li><%= article.comments[article.comments.length-1].date %></li>
-                            <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
-                            <li><%= article.comments[article.comments.length-1].content %></li>
-                          </div> 
-                        <% } %>  
-                      </ul>  
-                    
-                  </div>  
-                  <div class="article-preview none">
-                    <h1>Preview</h1>
-                    <h2><%- article.content %></h2>
-                  </div> 
-                </a>    
-              </div> 
-        <% }) %> 
-      </div> 
-    </div>  
-  </div> 
-        
+                      <li>Comments: <%= article.comments.length%></li>  
+                      <% if(article.comments.length > 0)  {%>
+                        <div class="latest-comment">Latest Comment 
+                          <li><%= article.comments[article.comments.length-1].date %></li>
+                          <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
+                          <li><%= article.comments[article.comments.length-1].content %></li>
+                        </div> 
+                      <% } %>  
+                    </ul>  
+                  
+                </div>  
+                <div class="article-preview none">
+                  <h1>Preview</h1>
+                  <h2><%- article.content %></h2>
+                </div> 
+              </a>    
+            </div> 
+      <% }) %> 
+    </div> 
+  </div>         
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 
