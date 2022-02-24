@@ -2,12 +2,20 @@ const Article = require("../models/Article");
 
 const dashboardView = async (req, res) => {
   try {
+    
     const articles = await Article.find({userId:req.user._id})
+    let articlesToShow = []
+    articles.forEach((article) => {
+      if(article.user == req.user._id.valueOf() || article.status == "public") {
+        articlesToShow.push(article)
+      } 
+    })
+
     res.render("dashboard", {
       userId: req.user._id.valueOf(),
-      name:req.user.name,
+      userName:req.user.name,
       email:req.user.email,
-      articles: articles
+      articlesToShow: articlesToShow,
     });
   } catch (err) {
     console.log(err);

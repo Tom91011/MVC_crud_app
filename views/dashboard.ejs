@@ -13,11 +13,9 @@
 </head>
 
 <body>
-  
+  <%- include("partials/account") -%>
+    
   <div class="container">
-    <h1>ID: <%= userId %></h1>
-    <h1>Username: <%= name %></h1>
-    <h1>email: <%= email %></h1>
     <div class="compose-container">
       <a href="/compose">
         <button>Create New Article</button>
@@ -26,48 +24,45 @@
 
     <div class="main-container">  
       <div class="articles-container-outer">
-      <% articles.forEach(function(article) { %>        
-        <% if(article.user == userId || article.status == "public") { %>
-          <div class="article-container-inner">
-            <a href=<%= `/article/${article.id}` %>>
-            <% if(article.user == userId) {%>            
-              <div class="article-container own-article">
-                <h3>Own Article</h3>
-            <% } else { %>
-              <div class="article-container other-user-article">
-                <h3>Author: <%= article.user%></h3>
-              <% } %>                
-                  <ul>                
-                    <li>Author: <%= article.userName%></li>
-                    <li>Article: <%= article.id %></li>
-                    <li>Title: <%= article.title %></li>
-                    <li>Content: <%- article.content %></li>
-                    <li>Status: <%= article.status %></li>                          
-                    <li>Date Posted: <%= article.date %></li> 
-                  
-                    <li>Comments: <%= article.comments.length%></li>  
-                    <% if(article.comments.length > 0)  {%>
-                      <div class="latest-comment">Latest Comment 
-                        <li><%= article.comments[article.comments.length-1].date %></li>
-                        <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
-                        <li><%= article.comments[article.comments.length-1].content %></li>
-                    </div> 
-                    <% } %>  
-                  
-                  </ul>                                      
-              </div>    
-            </a> 
-          
-          <div class="article-preview none">
-            <h1>Preview</h1>
-            <h2><%- article.content %></h2>
-          </div>   
-        </div>           
-        <% } %> 
-      <% }) %> 
-    </div> 
+        <% articlesToShow.forEach((article) => { %> 
+              <div class="article-container-inner">
+                <a href=<%= `/article/${article.id}` %> >
+                  <div <% if(article.user === userId) {%> 
+                    class="article-container own-article"
+                    <% } else { %>
+                      class="article-container other-user-article"
+                    <% } %> >
+                    
+                      <ul>
+                        <li>Author: <%= article.userName%></li>
+                        <li>Article: <%= article.id %></li>
+                        <li>Title: <%= article.title %></li>
+                        <li>Content: <%- article.content %></li>
+                        <li>Status: <%= article.status %></li>                          
+                        <li>Date Posted: <%= article.date %></li> 
+                      
+                        <li>Comments: <%= article.comments.length%></li>  
+                        <% if(article.comments.length > 0)  {%>
+                          <div class="latest-comment">Latest Comment 
+                            <li><%= article.comments[article.comments.length-1].date %></li>
+                            <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
+                            <li><%= article.comments[article.comments.length-1].content %></li>
+                          </div> 
+                        <% } %>  
+                      </ul>  
+                    
+                  </div>  
+                  <div class="article-preview none">
+                    <h1>Preview</h1>
+                    <h2><%- article.content %></h2>
+                  </div> 
+                </a>    
+              </div> 
+        <% }) %> 
+      </div> 
+    </div>  
+  </div> 
         
-  </div>
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 

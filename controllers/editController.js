@@ -15,6 +15,7 @@ const editView =  (req, res) => {
 
                     res.render("edit", {
                         userId: article.user,
+                        userName:req.user.name,
                         title: article.title,
                         content: article.content,
                         id: article._id,

@@ -1,5 +1,7 @@
 const composeView =  (req, res) => {
-    res.render("compose");  
+    res.render("compose", {
+        userName:req.user.name,
+    });  
 };
   
 module.exports = {

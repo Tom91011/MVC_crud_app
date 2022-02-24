@@ -1,12 +1,15 @@
 @font-face {
   font-family: "Barlow", sans-serif;
 }
-.main-container {
-  display: flex;
+body {
+  font-family: "barlow";
+  font-size: 16px;
+  background-color: #ecdbba;
 }
 
 .articles-container-outer {
-  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .none {
@@ -43,25 +46,25 @@
 }
 .article-container-inner:hover {
   background-color: black;
-  color: #b4cfb0;
+  color: #2d4263;
 }
 .article-container-inner ul {
   list-style-type: none;
   color: inherit;
 }
 .article-container-inner ul:hover {
-  color: #b4cfb0;
+  color: #2d4263;
 }
 .article-container-inner :visited {
   text-decoration: none;
 }
 
 .other-user-article {
-  background-color: #789395;
+  background-color: #2d4263;
 }
 
 .own-article {
-  background-color: #b4cfb0;
+  background-color: #2d4263;
 }
 
 a {
@@ -69,31 +72,19 @@ a {
   color: black;
 }
 a:hover {
-  color: #b4cfb0;
-}
-
-body {
-  font-family: "barlow";
-  font-size: 16px;
-  background-color: #e5e3c9;
+  color: #2d4263;
 }
 
 button {
-  background-color: #94b49f;
+  background-color: #c84b31;
   border: 0;
   border-radius: 10px;
   margin: 5px 0;
   padding: 10px 25px;
 }
 button:hover {
-  background-color: #789395;
+  background-color: #c84b31;
   cursor: pointer;
-}
-
-.comment {
-  border: solid #b4cfb0 1px;
-  padding: 5px;
-  margin: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
