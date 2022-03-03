@@ -6,24 +6,22 @@ body, html {
     font-family: $barlow;
     font-size: 16px;
     margin: 0;
-    width: 100%;
     height: 100%;
     overflow: auto;    
     background-color: $navy;
-    color: white;
+    color: $orange;
 }
+
 
 body::-webkit-scrollbar {
     width: 15px;
   }
 
 body::-webkit-scrollbar-track{
-    // box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
 }
 
 body::-webkit-scrollbar-thumb {
-    
     background: $primaryBeige; 
     border-radius: 10px;
     animation-name: show-scrollbar;
@@ -37,12 +35,15 @@ body::-webkit-scrollbar-thumb:hover {
 @keyframes show-scrollbar {
     from {background: white}
     to {background: black;}
-
 }
 
 a:visited { 
     text-decoration: none; 
-    color: white; 
+    color: black; 
+}
+
+a {
+    text-decoration: none; 
 }
 
 

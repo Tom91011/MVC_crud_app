@@ -11,7 +11,10 @@ const updateArticle = (req, res) => {
     status = "public"
     Article.findByIdAndUpdate(idToBeUpdated, {
         title: req.body.title,
+        teaser: req.body.teaser,
+        image: req.body.image,
         content: marked.parse(req.body.content),
+        sourceContent: req.body.content,
         status: status
     },
     (err, docs) => {

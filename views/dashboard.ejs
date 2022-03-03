@@ -19,48 +19,64 @@
     </section>
   <%- include("partials/account") -%>
     
+ 
+
   
     <div class="compose-container">
       <a href="/compose">
         <button>Create New Article</button>
       </a>
     </div>
+
     <div class="articles-container">
-      <% articlesToShow.forEach((article) => { %> 
-            <div class="article-container">
-              <a href=<%= `/article/${article.id}` %> >
-                <div <% if(article.user === userId) {%> 
-                  class="article-container own-article"
-                  <% } else { %>
-                    class="article-container other-user-article"
-                  <% } %> >
-                  
-                    <ul>
-                      <li>Author: <%= article.userName%></li>
-                      <li>Article: <%= article.id %></li>
-                      <li>Title: <%= article.title %></li>
-                      <li>Content: <%- article.content %></li>
-                      <li>Status: <%= article.status %></li>                          
-                      <li>Date Posted: <%= article.date %></li> 
-                    
-                      <li>Comments: <%= article.comments.length%></li>  
-                      <% if(article.comments.length > 0)  {%>
+      
+        <% articlesToShow.forEach((article) => { %> 
+          <div class="article">
+            <a href=<%= `/article/${article.id}` %> >
+              <div class="card">
+                
+                  <div <% if(article.user === userId) {%> 
+                    class="card-inner own-article"
+                    <% } else { %>
+                      class="card-inner other-user-article"
+                    <% } %> >
+                  <div class="card-image">
+                    <img src=<%= article.image%>>
+                    <div class="none overlay">
+                      <div class="overlay-text">
+                        <h2><%- article.teaser %></h2>
+                      </div>
+                    </div> 
+                  </div>
+                  <div class="card-info">
+                    <div>
+                      <p>Title: <%= article.title %></p>
+                      <div class="author">
+                        <p>Date Posted: <%= article.date %></p> 
+                        <p>Author: <%= article.userName%></p>
+                      </div>
+                    </div>
+                    <div class="comments">
+                      <p >Comments: <%= article.comments.length%></p>  
+                      <!-- <% if(article.comments.length > 0)  {%>
                         <div class="latest-comment">Latest Comment 
-                          <li><%= article.comments[article.comments.length-1].date %></li>
-                          <li><%= article.comments[article.comments.length-1].commentPosterName %></li>
-                          <li><%= article.comments[article.comments.length-1].content %></li>
+                          <p><%= article.comments[article.comments.length-1].date %></p>
+                          <p><%= article.comments[article.comments.length-1].commentPosterName %></p>
+                          <p><%= article.comments[article.comments.length-1].content %></p>
                         </div> 
-                      <% } %>  
-                    </ul>  
+                      <% } %>   -->
+                    </div>
+                  </div>
+                      
+                    
+                  </div>  
+                
                   
-                </div>  
-                <div class="article-preview none">
-                  <h1>Preview</h1>
-                  <h2><%- article.content %></h2>
-                </div> 
-              </a>    
-            </div> 
-      <% }) %> 
+              </div> 
+            </a> 
+          </div>
+        <% }) %> 
+      
     </div> 
   </div>         
 

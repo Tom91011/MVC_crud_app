@@ -12,9 +12,8 @@ window.onload = setTimeout(() => {
         setTimeout(
             function(){
                 loadingMessage[letterIndex].classList.remove("hide")
-                console.log(i);
+                loadingMessage[letterIndex].classList.add("show")
             }
         , i *30);
-    });
- 
+    }); 
 },200)

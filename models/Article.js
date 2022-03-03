@@ -6,9 +6,21 @@ const ArticleSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  teaser: {
+    type: String,
+    required: true,
+  },
   content: {
     type: String,
     required: true,
+  },
+  sourceContent: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    require: true,
   },
   status: {
     type: String,

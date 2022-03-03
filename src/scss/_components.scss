@@ -22,15 +22,23 @@
         left: 50%;
         transform: translate(-50%, -50%); 
         span {
-            letter-spacing: 10px;
-        }       
+            letter-spacing: 10px;           
+        }     
+        .show {
+            animation-name: letterFade;
+            animation-duration: 0.1s;
+        }  
     }
 }
 
 @keyframes hideLoader {
     from {height: 100%}
     to {height: 0;}
+}
 
+@keyframes letterFade {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 button {

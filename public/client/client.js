@@ -1,6 +1,7 @@
-const articlesEl = document.querySelectorAll(".article-container-inner")
+const articlesEl = document.querySelectorAll(".article")
 
 articlesEl.forEach(article => {
+    console.log(article);
     article.addEventListener("mouseover", (e) => {
         const currentArticle = e.currentTarget
         const articlePreview = currentArticle.querySelector(".article-preview")
@@ -13,7 +14,3 @@ articlesEl.forEach(article => {
         articlePreview.classList.add("none")
     })
 })
-
-// articlesEl.addEventListener("mouseover", (e) => {
-//    console.log(e.target);
-// })

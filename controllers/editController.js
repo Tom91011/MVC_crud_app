@@ -17,7 +17,9 @@ const editView =  (req, res) => {
                         userId: article.user,
                         userName:req.user.name,
                         title: article.title,
-                        content: article.content,
+                        teaser: article.teaser,
+                        image: article.image,
+                        content: article.sourceContent,
                         id: article._id,
                         date: article.date,
                         checkBoxStatus: checkBoxStatus
