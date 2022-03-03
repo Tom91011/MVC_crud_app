@@ -27,19 +27,30 @@
                     cursor: pointer;
                 }
                 .card-info {
+                    @include flex-row(row, space-between);
+                    align-items: flex-end;
                     padding: 15px;
                     height: 50%;
-                    img {
-                        position: relative;
-                        border-radius: 50%;
-                        width: 25px;
+                    .author-container {
+                        @include flex-row(row, space-between);
+                        align-items: center;
+                        .author-image {
+                            // position: relative;
+                            border-radius: 50%;
+                            width: 50px;
+                        }
+                        .author-info {
+                            padding-left: 15px;   
+                            P {
+                                margin-bottom: 0;
+                            }
+                        }
                     }
                 }
                 .card-image {
                     position: relative;
                     height: 100%;
                     width: 100%;
-                    
                     .article-image {
                         height: 350px;
                         object-fit: cover;
@@ -49,14 +60,15 @@
                     }                    
                 }
                 .comments {
-                    margin-top: 15px;
-                    margin-bottom: 15px;
+                    @include flex-row(row, space-between);
+                    P {
+                        margin: 0 5px;
+                    }
                 }
             }
         }
     }
 }
-
 
 .overlay {
     position: absolute;
@@ -90,8 +102,6 @@ height: 100%;
 bottom: 0;
 height: 0;
 }
-
-
 
 @keyframes show-articles {
     from {

@@ -50,22 +50,20 @@
                   </div>
                   <div class="card-info">
                     <div>
-                      <img src=<%= article.userIcon %> alt="">
-                      <p>Title: <%= article.title %></p>
-                      <div class="author">
-                        <p>Date Posted: <%= article.date %></p> 
-                        <p>Author: <%= article.userName%></p>
+                      <h1><%= article.title %></h1>
+                      
+                      <h4 class="teaser"><%=article.teaser.substring(0,200) +" ...read more" %>%></h4>
+                      <div class="author-container">
+                        <img class="author-image" src=<%= article.userIcon %> alt="">
+                        <div class="author-info">
+                          <h2><%= article.userName%></h2>
+                          <p><%= article.date %></p> 
+                        </div>
                       </div>
                     </div>
                     <div class="comments">
-                      <p >Comments: <%= article.comments.length%></p>  
-                      <!-- <% if(article.comments.length > 0)  {%>
-                        <div class="latest-comment">Latest Comment 
-                          <p><%= article.comments[article.comments.length-1].date %></p>
-                          <p><%= article.comments[article.comments.length-1].commentPosterName %></p>
-                          <p><%= article.comments[article.comments.length-1].content %></p>
-                        </div> 
-                      <% } %>   -->
+                      <i class="fas fa-comments highlight-yellow"></i> 
+                      <p><%= article.comments.length%></p>  
                     </div>
                   </div>
                       

@@ -1,4 +1,4 @@
-const articlesEl = document.querySelectorAll(".article")
+const articlesEl = document.querySelectorAll(".teaser")
 
 articlesEl.forEach(article => {
     console.log(article);
