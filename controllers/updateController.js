@@ -6,7 +6,6 @@ const marked = require('marked')
 const updateArticle = (req, res) => {
     const idToBeUpdated = req.body.articleId
     let status = "private"
-    console.log(req.body);
     if(req.body.checkbox)
     status = "public"
     Article.findByIdAndUpdate(idToBeUpdated, {
@@ -15,7 +14,8 @@ const updateArticle = (req, res) => {
         image: req.body.image,
         content: marked.parse(req.body.content),
         sourceContent: req.body.content,
-        status: status
+        status: status,
+        userIcon: req.user.icon
     },
     (err, docs) => {
         if (err){
@@ -24,8 +24,7 @@ const updateArticle = (req, res) => {
         else {
             console.log(`Update article ID: ${req.body.articleId}`);
         }
-      })
-   
+      })   
     res.redirect("/dashboard")
 }
 

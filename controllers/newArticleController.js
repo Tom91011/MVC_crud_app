@@ -10,6 +10,7 @@ const addArticle = (req, res) => {
     
     const user = req.user._id
     const userName = req.user.name
+    const userIcon = req.user.icon
     const sourceContent = content
     content = marked.parse(content)
     const newArticle = new Article ({
@@ -20,7 +21,8 @@ const addArticle = (req, res) => {
         sourceContent,
         status,
         user,
-        userName
+        userName,
+        userIcon
     })
     newArticle.save()
     res.redirect("/dashboard")

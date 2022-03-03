@@ -30,11 +30,15 @@ const ArticleSchema = new mongoose.Schema({
   user: {   
      type: mongoose.Schema.Types.ObjectId,    
      required: true,
-      },
-  userName: {   
+  },
+  userName: {   //Author
     type: String,    
     required: true,
-      },
+  },
+  userIcon: {   //Author
+    type: String,    
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

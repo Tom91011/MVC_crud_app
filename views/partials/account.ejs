@@ -1,3 +1,12 @@
 <div class="account">
     <h1>Username: <%= userName %></h1>
+    <h1>icon: </h1>
+    <img src=<%= icon %> alt="">
+    <form action="add-user-icon" method="post">
+        <div class="form-group">
+            <label for="icon">Image</label>
+            <input type="input" name="icon" placeholder="Add icon link">
+        </div>          
+        <button type="submit" name="submit">Add Icon</button>
+    </form>
 </div>

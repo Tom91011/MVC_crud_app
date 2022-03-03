@@ -14,6 +14,7 @@ const dashboardView = async (req, res) => {
     res.render("dashboard", {
       userId: req.user._id.valueOf(),
       userName:req.user.name,
+      icon: req.user.icon,
       email:req.user.email,
       articlesToShow: articlesToShow,
     });

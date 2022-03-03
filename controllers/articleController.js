@@ -16,6 +16,7 @@ const articleView = async (req, res) => {
                             res.render("article", {
                                 userId: req.user.id.valueOf(),
                                 userName:req.user.name,
+                                icon:req.user.icon,
                                 authorId: article.user,
                                 authorName: article.userName,
                                 articleId: article._id,

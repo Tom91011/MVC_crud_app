@@ -41,7 +41,7 @@
                       class="card-inner other-user-article"
                     <% } %> >
                   <div class="card-image">
-                    <img src=<%= article.image%>>
+                    <img class="article-image" src=<%= article.image%>>
                     <div class="none overlay">
                       <div class="overlay-text">
                         <h2><%- article.teaser %></h2>
@@ -50,6 +50,7 @@
                   </div>
                   <div class="card-info">
                     <div>
+                      <img src=<%= article.userIcon %> alt="">
                       <p>Title: <%= article.title %></p>
                       <div class="author">
                         <p>Date Posted: <%= article.date %></p> 

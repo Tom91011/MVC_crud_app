@@ -154,12 +154,17 @@ button:hover {
   padding: 15px;
   height: 50%;
 }
+.articles-container .article .card .card-inner .card-info img {
+  position: relative;
+  border-radius: 50%;
+  width: 25px;
+}
 .articles-container .article .card .card-inner .card-image {
   position: relative;
   height: 100%;
   width: 100%;
 }
-.articles-container .article .card .card-inner .card-image img {
+.articles-container .article .card .card-inner .card-image .article-image {
   height: 350px;
   object-fit: cover;
   width: 100%;
@@ -199,7 +204,7 @@ button:hover {
   height: 100%;
 }
 
-.article:hover img {
+.article:hover .article-image {
   bottom: 0;
   height: 0;
 }

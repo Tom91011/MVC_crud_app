@@ -29,13 +29,18 @@
                 .card-info {
                     padding: 15px;
                     height: 50%;
+                    img {
+                        position: relative;
+                        border-radius: 50%;
+                        width: 25px;
+                    }
                 }
                 .card-image {
                     position: relative;
                     height: 100%;
                     width: 100%;
                     
-                    img {
+                    .article-image {
                         height: 350px;
                         object-fit: cover;
                         width: 100%;
@@ -81,7 +86,7 @@ bottom: 0;
 height: 100%;
 }
 
-.article:hover img {
+.article:hover .article-image {
 bottom: 0;
 height: 0;
 }
