@@ -30,7 +30,7 @@
                     @include flex-row(row, space-between);
                     align-items: flex-end;
                     padding: 15px;
-                    height: 50%;
+                    height: 300px;
                     .author-container {
                         @include flex-row(row, space-between);
                         align-items: center;
@@ -52,7 +52,7 @@
                     height: 100%;
                     width: 100%;
                     .article-image {
-                        height: 350px;
+                        height: 280px;
                         object-fit: cover;
                         width: 100%;
                         border-radius: 10px 10px 0 0; 
