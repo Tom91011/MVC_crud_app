@@ -1,4 +1,12 @@
+let socket;
+
+const setup = () => {
+    socket = io.connect('http://localhost:4000')
+}
+setup()
+
 document.body.addEventListener('scroll',()=>{
+    
     const scrollBuffer = 200
     if(window.innerHeight + document.body.scrollTop >= document.body.scrollHeight - scrollBuffer){
         // loadImages();
@@ -12,3 +20,6 @@ document.body.addEventListener('scroll',()=>{
         console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
     }
 })
+
+
+

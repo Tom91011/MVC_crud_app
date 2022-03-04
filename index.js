@@ -39,4 +39,21 @@ app.use('/', require('./routes/edit'))
 app.use('/', require('./routes/article'))
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, console.log("Server connected to port: " + PORT))
+const server = app.listen(PORT, console.log("Server connected to port: " + PORT))
+
+var io = require('socket.io')(server);
+
+// Register a callback function to run when we have an individual connection
+// This is run for each individual user that connects
+io.sockets.on('connection',
+  // We are given a websocket object in our function
+  function (socket) {
+
+    console.log("We have a new client: " + socket.id);
+
+    socket.on('disconnect', function() {
+      console.log("Client has disconnected");
+    });
+  }
+);
+
