@@ -1,42 +1,46 @@
-let socket;
+let socket = io();
 
+let userId = new Date().getTime();
 
-
-// const setup = () => {
-//     socket = io.connect('http://localhost:4000')
-// }
-// setup()
-
-// let dataa = "test"
-// socket.emit('mouse', dataa)
-
-document.body.addEventListener('scroll',()=>{
-    const setup = () => {
-        socket = io.connect('http://localhost:4000')
-    }
-    setup()
+document.body.addEventListener('scroll',(userId)=>{
     
-    const scrollBuffer = 0
+    const scrollBuffer = 200
     if(window.innerHeight + document.body.scrollTop >= document.body.scrollHeight - scrollBuffer){
-        // loadImages();
-        const data = window.innerHeight + document.body.scrollTop - document.body.scrollHeight + " from bottom, more content to be loaded";
+        const setup = () => {
+            socket = io.connect()
+        }
+        setup()
 
-        
+        const dataNumber = window.innerHeight + document.body.scrollTop - document.body.scrollHeight
+        console.log(dataNumber);
+        const data = dataNumber + " from bottom, more content to be loaded";
+
+        console.log(document.querySelectorAll(".article"));
+        const articles = document.querySelectorAll(".article").length
         console.log(data);
 
-        socket.emit('windowEnd', data)
-
-        
-
-        // console.log("scrolled to bottom");
-        // console.log("visible height: " + window.innerHeight);
-        // console.log("scollY: " + document.body.offsetTop);
-        // console.log("scroll top: " + document.body.scrollTop)
-        // console.log("total height: " + document.body.scrollHeight);
+        socket.emit('windowEnd', userId)
     } else {
-        console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
+        // console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
     }
 })
+
+socket.on('message', message => {
+    console.log(message);
+})
+
+socket.on('privateMessage', message => {
+    console.log(message);
+
+    const node = document.querySelectorAll(".article")[0]
+    const clone = node.cloneNode(true)
+
+    document.querySelector(".articles-container").appendChild(clone)    
+})
+
+
+
+  
 
 
 
