@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo')//needed to store the session in Mong
 const passport = require('passport')
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
+const { getNextArticle } = require('./controllers/dashboardController')
 
 // Mongo DB conncetion
 const database = process.env.MONGODB_DATABASE_ACCESS;
@@ -42,40 +43,28 @@ const PORT = process.env.PORT || 4000;
 const server = app.listen(PORT, console.log("Server connected to port: " + 4000))
 
 var io = require('socket.io')(server);
-
-// Register a callback function to run when we have an individual connection
-// This is run for each individual user that connects
 io.on('connection',
-  // We are given a websocket object in our function
   function (socket) {
-    const room = socket.id
-    // console.log(socket.id);
-    socket.join("room")
-
-    console.log("We have a new client: " + socket.id);
-
-    socket.on('windowEnd',
+   
+    socket.on('loadMore',
       function(data) {
-        console.log(socket.client.conn.id);
-        // Data comes in as whatever was sent, including objects
-        console.log("Received: 'mouse' " + data);      
-        
-        // This is a way to send to everyone including sender
-        io.sockets.emit('message', "this goes to everyone");
-
-        io.to("room").emit('privateMessage', `This is a private message for room id: ${data}`)
-
+       
+        console.log(socket.id);
+        console.log("in load more");
+        const nextArticle = getNextArticle()
+        io.to(socket.id).emit('privateMessage', nextArticle)
       }
     );
 
-    socket.on('disconnect', function() {
+    io.on('disconnect', function() {
       console.log("Client has disconnected");
       socket.disconnect()
     });
   }
 );
 
-var srvSockets = io.sockets.sockets;
-Object.keys(srvSockets).length;
-console.log(srvSockets);
+io.on('loadMore', () => {
+  console.log(socketId);
+})
+
 
