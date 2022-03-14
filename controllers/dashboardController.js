@@ -1,4 +1,3 @@
-// const e = require("express");
 const Article = require("../models/Article");
 
 let availableArticles = []
