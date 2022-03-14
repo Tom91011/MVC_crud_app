@@ -9,6 +9,10 @@ const MongoStore = require('connect-mongo')//needed to store the session in Mong
 const passport = require('passport')
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
+const { getNextArticle } = require('./controllers/dashboardController')
+const { pairUserIdWithSocketId } = require('./controllers/dashboardController')
+const { deleteUserIdWithSocketId } = require('./controllers/dashboardController')
+
 
 // Mongo DB conncetion
 const database = process.env.MONGODB_DATABASE_ACCESS;
@@ -39,4 +43,33 @@ app.use('/', require('./routes/edit'))
 app.use('/', require('./routes/article'))
 
 const PORT = process.env.PORT || 4000;
-app.listen(PORT, console.log("Server connected to port: " + PORT))
+const server = app.listen(PORT, console.log("Server connected to port: " + 4000))
+
+const io = require('socket.io')(server);
+
+io.on('connection',
+  (socket) => {
+    console.log(socket.id + " has connected");
+    io.to(socket.id).emit('userIdRequest')
+
+    socket.on('clientId', (usernameId) => {
+      console.log("the client has sent the following user ID : " + usernameId);
+      pairUserIdWithSocketId(socket.id, usernameId)
+    })
+   
+    socket.on('loadMore',
+      (previousArticleId) => {
+        console.log("The previous article ID received from client : " + previousArticleId.userId)
+        console.log("socket ID requesting more articles is : " + socket.id)
+        const nextArticle = getNextArticle(previousArticleId, previousArticleId.userId, socket.id)
+        io.to(socket.id).emit('privateMessage', nextArticle)
+      }
+    );
+
+    socket.on('disconnect', function() {
+      console.log("Client has disconnected");
+      deleteUserIdWithSocketId(socket.id)
+      socket.disconnect(socket.id)
+    });
+  }
+);
