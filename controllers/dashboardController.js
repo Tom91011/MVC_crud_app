@@ -1,4 +1,4 @@
-const e = require("express");
+// const e = require("express");
 const Article = require("../models/Article");
 
 let availableArticles = []
@@ -47,7 +47,6 @@ const dashboardView = async (req, res) => {
 };
 
 // This creates an array of all users IDs and pairs them with thier own unique Socket.io ID
-
 let userIdSocketIdPairArray = []
 const pairUserIdWithSocketId = (socketId, userId) => {
   userIdSocketIdPairArray.push({
@@ -83,8 +82,7 @@ const getNextArticle = (previousArticleId, userId, socketId) => {
         if(nextArticleIndex != -1)
         console.log(`position of the next article ${nextArticle._id} is: ${nextArticleIndex}`); 
 
-        return(nextArticle)
-         
+        return(nextArticle)         
     } 
   } 
 }
@@ -97,8 +95,6 @@ const deleteUserIdWithSocketId = (socketId) => {
   console.table(userIdSocketIdPairArray)
 }
 
-
-  
 module.exports = {
   dashboardView,
   getNextArticle,
