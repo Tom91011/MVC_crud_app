@@ -1,5 +1,4 @@
 const express = require("express");
-
 const {
   registerView,
   loginView,
@@ -8,13 +7,14 @@ const {
 } = require("../controllers/loginController");
 const { dashboardView } = require("../controllers/dashboardController");
 const { protectRoute } = require("../auth/protect");
+const { noCache } = require("../auth/noCache")
 
 const router = express.Router();
 
 router.get("/", protectRoute, dashboardView);
 router.get("/register", registerView);
 router.get("/login", loginView);
-router.get("/dashboard", protectRoute, dashboardView);
+router.get("/dashboard", protectRoute, noCache, dashboardView);
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
