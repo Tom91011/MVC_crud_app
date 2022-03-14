@@ -23,6 +23,7 @@
     "express-session": "^1.17.2",
     "lodash": "^4.17.21",
     "marked": "^4.0.12",
+    "moment": "^2.29.1",
     "mongoose": "^6.2.1",
     "node-sass": "^7.0.1",
     "passport": "^0.5.2",

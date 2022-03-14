@@ -1,4 +1,8 @@
+const express = require('express');
+const app = express();
 const Article = require("../models/Article");
+// var moment = require('moment');
+// app.locals.moment = require('moment');
 
 let availableArticles = []
 let initialArticlesToShow = []
@@ -7,6 +11,7 @@ let articleIdsArray = []
 const dashboardView = async (req, res) => {
   try {    
     articlesInDb = await Article.find({userId:req.user._id})
+    articlesInDb = articlesInDb.reverse()
     articleIdsArray = []
     availableArticles = []
     initialArticlesToShow = [] //This set back to a blank array so on a page refresh the following loop doesn't add onto an existing array

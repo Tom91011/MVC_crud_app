@@ -95,7 +95,8 @@
                         <img class="author-image" src=<%= article.userIcon %> alt="">
                         <div class="author-info">
                           <h2 class="author-name"><%= article.userName%></h2>
-                          <p class="article-date"><%= article.date %></p> 
+                          <p class="article-date"><%= moment(article.date).fromNow()  %> </p>
+                          
                         </div>
                       </div>
                     </div>

@@ -7,6 +7,8 @@ dotenv.config();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')//needed to store the session in MongoDB
 const passport = require('passport')
+// var moment = require('moment');
+app.locals.moment = require('moment');
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
 const { getNextArticle } = require('./controllers/dashboardController')
