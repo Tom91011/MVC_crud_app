@@ -1,6 +1,5 @@
 let socket = io();
 var now = moment();
-console.log(now);
 
 socket.on('userIdRequest', () => {
     console.log("requesting id from server");
@@ -48,6 +47,7 @@ socket.on('message', message => {
 
 socket.on('privateMessage', nextArticle => {
     if(nextArticle) {
+        console.log(nextArticle);
         const node = document.querySelectorAll(".article")[0]
         const clone = node.cloneNode(true)
         const cloneNode =  document.querySelector(".articles-container").appendChild(clone)  
@@ -57,6 +57,10 @@ socket.on('privateMessage', nextArticle => {
         lastChild.querySelector(".article-title").textContent = nextArticle.title
         lastChild.querySelector(".article-date").textContent = moment([nextArticle.date]).fromNow()
         lastChild.setAttribute("data", nextArticle._id)
+        lastChild.querySelector(".article-image").setAttribute("src", nextArticle.image)
+        lastChild.querySelector(".author-image").setAttribute("src", nextArticle.userIcon)
+        lastChild.querySelector(".author-name").textContent = nextArticle.userName
+        lastChild.querySelector(".teaser").textContent = nextArticle.teaser
         lastChild.classList.remove("hide")
     }
 })
