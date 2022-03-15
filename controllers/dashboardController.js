@@ -1,8 +1,6 @@
 const express = require('express');
 const app = express();
 const Article = require("../models/Article");
-// var moment = require('moment');
-// app.locals.moment = require('moment');
 
 let availableArticles = []
 let initialArticlesToShow = []

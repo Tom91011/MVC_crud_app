@@ -1,9 +1,6 @@
 let socket = io();
-
-// const setup = () => {
-    // socket = io.connect()
-// }
-// setup()
+var now = moment();
+console.log(now);
 
 socket.on('userIdRequest', () => {
     console.log("requesting id from server");
@@ -58,7 +55,7 @@ socket.on('privateMessage', nextArticle => {
         const articlesEl = document.querySelector(".articles-container")
         const lastChild = articlesEl.lastChild
         lastChild.querySelector(".article-title").textContent = nextArticle.title
-        lastChild.querySelector(".article-date").textContent = nextArticle.date
+        lastChild.querySelector(".article-date").textContent = moment([nextArticle.date]).fromNow()
         lastChild.setAttribute("data", nextArticle._id)
         lastChild.classList.remove("hide")
     }
