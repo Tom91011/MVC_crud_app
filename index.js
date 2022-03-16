@@ -11,7 +11,7 @@ const passport = require('passport')
 app.locals.moment = require('moment');
 const { loginCheck } = require('./auth/passport')
 loginCheck(passport);
-const { getNextArticle } = require('./controllers/dashboardController')
+const { getNextArticles } = require('./controllers/dashboardController')
 const { pairUserIdWithSocketId } = require('./controllers/dashboardController')
 const { deleteUserIdWithSocketId } = require('./controllers/dashboardController')
 
@@ -63,8 +63,8 @@ io.on('connection',
       (previousArticleId) => {
         console.log("The previous article ID received from client : " + previousArticleId.userId)
         console.log("socket ID requesting more articles is : " + socket.id)
-        const nextArticle = getNextArticle(previousArticleId, previousArticleId.userId, socket.id)
-        io.to(socket.id).emit('privateMessage', nextArticle)
+        const nextArticle = getNextArticles(previousArticleId, previousArticleId.userId, socket.id)
+        io.to(socket.id).emit('nextArticles', nextArticle)
       }
     );
 

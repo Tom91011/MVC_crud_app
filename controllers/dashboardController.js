@@ -1,5 +1,3 @@
-const express = require('express');
-const app = express();
 const Article = require("../models/Article");
 
 let availableArticles = []
@@ -58,9 +56,8 @@ const pairUserIdWithSocketId = (socketId, userId) => {
   console.table(userIdSocketIdPairArray);
 }
 
-const getNextArticle = (previousArticleId, userId, socketId) => {
-
-  const previousArticleArrayPosition = articleIdsArray.findIndex(articleId => articleId == previousArticleId.articleId)
+const getNextArticles = (previousArticleId, userId, socketId) => {
+  let nextArticles = []
 
   // returns an object containing the userID relating to the socketId
   const findUser = (userObject) => {
@@ -71,22 +68,32 @@ const getNextArticle = (previousArticleId, userId, socketId) => {
 
   // Checks if the corresponding userId taken from the socketId matches the userId sent by the client
   const doesUserIdMatchSocketId = user => {return userId == user.userId}
-  //  If there is a match then it sends on the next available article (i.e has to be either their own or another users public article)
+  //  If there is a match then it sends on the next available article (i.e available implies it has to be either their own or another users public article)
+  
+  let previousArticleIndex = articleIdsArray.findIndex(articleId => articleId == previousArticleId.articleId)
+
   if(doesUserIdMatchSocketId(user)) {
-      if(previousArticleArrayPosition !== articleIdsArray.length - 1 ) {
-        console.log(`position of the previous article ${previousArticleId.articleId} was: ${previousArticleArrayPosition}`);
-        const nextArticleArrayPostion = previousArticleArrayPosition + 1        
-        
-        const nextArticleIndex = articlesInDb.findIndex((article, index) => (article.user.valueOf() == userId || article.status == "public") && index > previousArticleArrayPosition);
-      
+
+    const fetchNextArticle = (nextArticleIndex) => {        
         const nextArticle = articlesInDb[nextArticleIndex]
+        nextArticles.push(nextArticle)
+    }
 
-        if(nextArticleIndex != -1)
-        console.log(`position of the next article ${nextArticle._id} is: ${nextArticleIndex}`); 
+    const findNextArticleIndex = (previousArticleIndex) => {
+      // ensures the next article sent to client is eithe a public article or their own article
+      let nextArticleIndex = articlesInDb.findIndex((article, index) => (article.user.valueOf() == userId || article.status == "public") && index > previousArticleIndex);
+      return (nextArticleIndex)
+    }
 
-        return(nextArticle)         
-    } 
-  } 
+  for (let i = 0; i < 3; i++) {
+    const nextArticleIndex = findNextArticleIndex(previousArticleIndex)
+    if(nextArticleIndex != -1 ) {
+      fetchNextArticle(nextArticleIndex)
+      previousArticleIndex = findNextArticleIndex(previousArticleIndex)  
+    }
+  }
+    return(nextArticles)    
+  }
 }
 
 // Finds the socket.io ID in the array and deletes it when the client exits or refreshes the browser
@@ -99,7 +106,7 @@ const deleteUserIdWithSocketId = (socketId) => {
 
 module.exports = {
   dashboardView,
-  getNextArticle,
+  getNextArticles,
   pairUserIdWithSocketId,
   deleteUserIdWithSocketId
 };

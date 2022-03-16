@@ -41,28 +41,25 @@ window.addEventListener("scroll", () => {
   throttle(handleScrollThrottle, 250);
 });
 
-socket.on('message', message => {
-    console.log(message);
-})
-
-socket.on('privateMessage', nextArticle => {
-    if(nextArticle) {
-        console.log(nextArticle);
-        const node = document.querySelectorAll(".article")[0]
-        const clone = node.cloneNode(true)
-        const cloneNode =  document.querySelector(".articles-container").appendChild(clone)  
-        cloneNode
-        const articlesEl = document.querySelector(".articles-container")
-        const lastChild = articlesEl.lastChild
-        lastChild.querySelector(".article-title").textContent = nextArticle.title
-        lastChild.querySelector(".article-date").textContent = moment([nextArticle.date]).fromNow()
-        lastChild.setAttribute("data", nextArticle._id)
-        lastChild.querySelector(".article-image").setAttribute("src", nextArticle.image)
-        lastChild.querySelector(".author-image").setAttribute("src", nextArticle.userIcon)
-        lastChild.querySelector(".author-name").textContent = nextArticle.userName
-        lastChild.querySelector(".teaser").textContent = nextArticle.teaser
-        lastChild.classList.remove("hide")
-    }
+socket.on('nextArticles', articles => {
+    console.log(articles);
+    articles.forEach(article => {        
+            const node = document.querySelectorAll(".article")[0]
+            const clone = node.cloneNode(true)
+            const cloneNode =  document.querySelector(".articles-container").appendChild(clone)  
+            cloneNode
+            const articlesEl = document.querySelector(".articles-container")
+            const lastChild = articlesEl.lastChild
+            lastChild.querySelector(".article-title").textContent = article.title
+            lastChild.querySelector(".article-date").textContent = moment([article.date]).fromNow()
+            lastChild.setAttribute("data", article._id)
+            lastChild.querySelector("a").setAttribute("href", `/article/${article._id}`)
+            lastChild.querySelector(".article-image").setAttribute("src", article.image)
+            lastChild.querySelector(".author-image").setAttribute("src", article.userIcon)
+            lastChild.querySelector(".author-name").textContent = article.userName
+            lastChild.querySelector(".teaser").textContent = article.teaser
+            lastChild.classList.remove("hide")        
+    })  
 })
 
 
