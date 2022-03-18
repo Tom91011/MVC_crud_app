@@ -1,10 +1,7 @@
 .button-container{
-    @include flex-row(row, flex-end);
-    margin-left: 15px;
-    // margin-right: 10px;
-    button {
-        margin-right: 10px
-    }
+    @include flex-row(row, space-between);
+    margin-top: 15px;
+    // width: 100%;
 }
 
 .articles-container {

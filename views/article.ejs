@@ -14,23 +14,20 @@
 </head>
 
 <body>
-  <div class="wrapper">
+ 
     <section class="loading-screen">
 
     </section>
-    <%- include("partials/account") -%>
-    <div class="button-container">
-      <a href="/compose">
-        <button class="new-article-button">Create New Article</button>
-      </a>
-      <a href="/dashboard">
-        <button>Dashboard</button>
-      </a>
+    <div class="wrapper">
+      <div class="article-page-container">
+    <div class="account">
+      <%- include("partials/account") -%>
     </div>
+  
 
    
 
-    <div class="article-page-container">
+  
       <div class="article-container">
         <% if(authorId == userId) {%>
           <div class="article-buttons">
@@ -48,7 +45,7 @@
           <div class="author">
             <h2>Author: <%= authorName %></h2>
             <img class="author-image-icon" src=<%= authorIcon %>>
-            <h2><%= moment(date).format('MMM Do YY') %></h2>
+            <h2><%= moment(date).format('MMM Do YYYY') %></h2>
           </div>
         
           <h1><%= title %></h1>
@@ -59,24 +56,46 @@
      
 
   
-    <div class="comments-container">
-      <div class="write-comment">
-        <p>Make a comment</p>
-        <form action="/comment" method="post">
-          <textarea name="content" cols="40" rows="12"></textarea>        
-            <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>        
-        </form>
-      </div> 
+    <div class="right-column">
+      
+      <div>
+        <div class="logo">
+          <p>SOCIAL BLOG</p>
+        </div>
+        <div class="button-container">
+        <a href="/compose">
+          <button class="new-article-button">Create New Article</button>
+        </a>
+        <a href="/dashboard">
+          <button>Dashboard</button>
+        </a>
+      </div>
+      </div>
       <div class="comments">
         <h1>Comments</h1>
-        <% comments.forEach(function(comment) { %>
-          <div class="comment">
-            <h2> <%= comment.commentPosterName %></h2>
-            <h2> <%= comment.date %></h2>
-            <h2> <%= comment.content %></h2>
+        <div class="write-comment-container">
+          <p>Make a comment</p>
+          <form class="submit-comment-form" action="/comment" method="post">
+            <textarea name="content" cols="30" rows="4"></textarea>        
+              <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>        
+          </form>
+        </div> 
+        <div class="user-comments">
+          <% comments.forEach(function(comment) { %>
+            <div class="comment">
+              <div>
+                <img class="author-image-icon" src=<%= comment.commentPosterIcon %>>
+                <h2> <%= comment.commentPosterName %></h2>
+              </div>
+              
+              <h2> <%= moment(comment.date).fromNow() %></h2>
+              
+              <h2> <%= comment.content %></h2>
+          </div>
+          <% }) %>
         </div>
-        <% }) %>
       </div>
+
       
     </div>
     </div>

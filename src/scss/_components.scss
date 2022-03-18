@@ -72,13 +72,19 @@ button {
             padding: 0 15px;            
         }        
     }
-    .logo {
-        font-size: 2em;
-        letter-spacing: 0.2em;
-        font-family: $tenorSans;
-        padding-top: 15px;
-        p {
-            margin: 0;
-        }
+}
+
+.logo {
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    font-family: $tenorSans;
+    padding-top: 15px;
+    width: 304px;
+    p {
+        margin: 0;
     }
+}
+
+.account-details:hover {
+    cursor: pointer;
 }

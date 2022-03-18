@@ -47,6 +47,7 @@ const ArticleSchema = new mongoose.Schema({
     [{
       commentPoster: mongoose.Schema.Types.ObjectId, 
       commentPosterName: String,
+      commentPosterIcon: String,
       content: String,
       date: {
         type: Date,

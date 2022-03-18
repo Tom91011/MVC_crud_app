@@ -42,6 +42,8 @@ const newComment = (req, res) => {
     let {content, articleId} = req.body
     const commentPoster = req.user._id
     const commentPosterName = req.user.name
+    const commentPosterIcon = req.user.icon
+    // console.log(req.user);
     const commentArticleId = req.body.articleId
     const comment = req.body.content
     const date = req.body.date
@@ -50,6 +52,7 @@ const newComment = (req, res) => {
             comments: {
                 commentPoster: commentPoster,
                 commentPosterName: commentPosterName, 
+                commentPosterIcon: commentPosterIcon,
                 content: comment,
                 date: date
             }
