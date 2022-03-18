@@ -7,26 +7,23 @@
   <link rel="stylesheet" href="/public/styles/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
   <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
   <title>Logged in</title>
 </head>
 
-<body>
+<body class="test">
   <div class="wrapper">
     <section class="loading-screen">
-      <h1><span class="hide">W</span><span class="hide">e</span><span class="hide">l</span><span class="hide">c</span><span class="hide">o</span><span class="hide">m</span><span class="hide">e</span><span class="hide"> t</span><span class="hide">o</span><span class="hide"> y</span><span class="hide">o</span><span class="hide">u</span><span class="hide">r</span><span class="hide"> b</span><span class="hide">l</span><span class="hide">o</span><span class="hide">g</span></h1>
+      <p><span class="hide">W</span><span class="hide">e</span><span class="hide">l</span><span class="hide">c</span><span class="hide">o</span><span class="hide">m</span><span class="hide">e</span><span class="hide"> t</span><span class="hide">o</span><span class="hide"> y</span><span class="hide">o</span><span class="hide">u</span><span class="hide">r</span><span class="hide"> S</span><span class="hide">O</span><span class="hide">C</span><span class="hide">I</span><span class="hide">A</span><span class="hide">L</span><span class="hide"> b</span><span class="hide">l</span><span class="hide">o</span><span class="hide">g</span></p>
     </section>
-  <%- include("partials/account") -%>
-    
- 
 
-  
+  <%- include("partials/account") -%>
     <div class="compose-container">
       <a href="/compose">
-        <button>Create New Article</button>
+        <button class="new-article-button">Create New Article</button>
       </a>
     </div>
 
@@ -45,22 +42,26 @@
                 </div> 
               </div>
               <div class="card-info">
-                <div>
+                <div class="top-row-card">
                   <h1 class="article-title"></h1>
-                  
                   <h4 class="teaser"></h4>
-                  <div class="author-container">
-                    <img class="author-image"  alt="">
-                    <div class="author-info">
-                      <h2 class="author-name"></h2>
-                      <p class="article-date"></p> 
+                </div>
+                  <div class="bottom-row-card">
+                    <div class="author-container">
+                      <img class="author-image"  alt="">
+                      <div class="author-info">
+                        <h2 class="author-name"></h2>
+                        <p class="article-date"></p> 
+                      </div>
+                    </div>
+                    <div class="comments">
+                      <i class="fas fa-comments highlight-yellow"></i> 
+                      <p></p>  
                     </div>
                   </div>
-                </div>
-                <div class="comments">
-                  <i class="fas fa-comments highlight-yellow"></i> 
-                  <p></p>  
-                </div>
+                  
+                  
+                
               </div>                 
                 
               </div>  
@@ -88,29 +89,25 @@
                     </div> 
                   </div>
                   <div class="card-info">
-                    <div>
+                    <div class="top-row-card">
                       <h1 class="article-title"><%= article.title %></h1>
-                      
                       <h4 class="teaser"><%=article.teaser.substring(0,200) +" ...read more" %>%></h4>
+                    </div>
+                    <div class="bottom-row-card">
                       <div class="author-container">
                         <img class="author-image" src=<%= article.userIcon %> alt="">
                         <div class="author-info">
                           <h2 class="author-name"><%= article.userName%></h2>
                           <p class="article-date"><%= moment(article.date).fromNow()  %> </p>
-                          
                         </div>
                       </div>
-                    </div>
-                    <div class="comments">
-                      <i class="fas fa-comments highlight-yellow"></i> 
-                      <p><%= article.comments.length%></p>  
+                      <div class="comments">
+                        <i class="fas fa-comments highlight-yellow"></i> 
+                        <p><%= article.comments.length%></p>  
+                      </div>
                     </div>
                   </div>
-                      
-                    
-                  </div>  
-                
-                  
+                </div>  
               </div> 
             </a> 
           </div>
@@ -118,8 +115,7 @@
  
       
     </div> 
-  </div>   
-
+  </div> 
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->
 

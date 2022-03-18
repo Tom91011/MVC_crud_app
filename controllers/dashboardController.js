@@ -26,7 +26,7 @@ const dashboardView = async (req, res) => {
     //  loops through available articles for a user and pushes the first few to the initial screen render
     let count = 1
     availableArticles.every(article => {
-      if(count > 3) {
+      if(count > 6) {
         return false
       }
       initialArticlesToShow.push(article)

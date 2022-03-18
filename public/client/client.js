@@ -7,6 +7,48 @@ socket.on('userIdRequest', () => {
     socket.emit('clientId', userId)
 })
 
+const accountDetailsEl = document.querySelector(".account-details")
+const dropDownEl = document.querySelector(".account-dropdown-container")
+const changeIconEl = document.querySelector(".change-icon-button")
+const changeIconFormEl = document.querySelector(".sub-dropdown-container")
+
+const showDropdown = () => {
+    dropDownEl.classList.toggle("hide")
+    dropDownEl.classList.toggle("show")
+    if(changeIconFormEl.classList.contains("show")) {
+      changeIconFormEl.classList.remove("show")
+      changeIconFormEl.classList.add("hide")
+    }
+}
+
+accountDetailsEl.addEventListener("click", showDropdown)
+
+const showChangeIconForm = () => {
+    changeIconFormEl.classList.toggle("hide")
+    changeIconFormEl.classList.toggle("show")
+}
+
+changeIconEl.addEventListener("click", showChangeIconForm)
+
+// minimises dropdown and subdropdown if user clicks anywhere except the dropdown element
+window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-switch')) {
+        console.log("clicked outside dropdown");
+      var dropdowns = document.getElementsByClassName("dropdown-container");
+      console.log(dropdowns);
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (!openDropdown.classList.contains('hide')) {
+          openDropdown.classList.add('hide');
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+
+// Stops the scroll maybe multiple
 let throttleTimer;
 
 const handleScrollThrottle = () => {
@@ -27,7 +69,7 @@ const handleScrollThrottle = () => {
             // console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
         }
 }
- 
+
 const throttle = (handleScrollThrottle, time) => {
   if (throttleTimer) return;
     throttleTimer = true;
@@ -42,7 +84,6 @@ window.addEventListener("scroll", () => {
 });
 
 socket.on('nextArticles', articles => {
-    console.log(articles);
     articles.forEach(article => {        
             const node = document.querySelectorAll(".article")[0]
             const clone = node.cloneNode(true)

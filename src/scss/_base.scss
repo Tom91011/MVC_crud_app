@@ -4,11 +4,13 @@
 }
 
 body, html {
+    height: 1500px;
     font-family: $barlow;
     font-size: 16px;
+    font-weight: 400;
     margin: 0;
-    // height: 100%;
-    overflow: auto;    
+    //   overflow: auto;
+    // animation-name: show-scrollbar;
     background-color: $navy;
     color: $orange;
 }
@@ -24,18 +26,19 @@ body::-webkit-scrollbar-track{
 body::-webkit-scrollbar-thumb {
     background: $primaryBeige; 
     border-radius: 10px;
-    animation-name: show-scrollbar;
-    animation-duration: 2s;
+    // animation-name: show-scrollbar;
+    // animation-duration: 2s;
+    // overflow: scroll;
 }
 
 body::-webkit-scrollbar-thumb:hover {
     background: $orange; 
   }
 
-@keyframes show-scrollbar {
-    from {background: white}
-    to {background: black;}
-}
+// @keyframes show-scrollbar {
+//     from {overflow: hidden;}
+//     to {overflow: scroll;}
+// }
 
 a:visited { 
     text-decoration: none; 

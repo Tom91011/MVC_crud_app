@@ -1,16 +1,31 @@
-<div class="account">
-    <h1 class="username" data=<%= userId %>>Username: <%= userName %></h1>
-    <h1>icon: </h1>
-    <img src=<%= icon %> alt="">
-    <form action="add-user-icon" method="post">
-        <div class="form-group">
-            <label for="icon">Image</label>
-            <input type="input" name="icon" placeholder="Add icon link">
-        </div>          
-        <button type="submit" name="submit">Add Icon</button>
+<div class="header">
+    <div class="account dropdown-switch">
+        <div class="account-details dropdown-switch">
+            <img class="usericon dropdown-switch" src=<%= icon %> alt="Users Icon">
+            <h1 class="username dropdown-switch" data=<%= userId %>><%= userName %></h1>
+        </div>
         
-    </form>
-    <form action="log-out" method="post">
-        <button>Log Out</button>
-    </form>
+        <div class="dropdown-container account-dropdown-container hide">
+            <div class="change-icon-container">
+                <button class="change-icon-button dropdown-content dropdown-switch">Change My Icon</button>
+                <form action="add-user-icon" method="post" class="change-icon-form">
+                    <div class="dropdown-container sub-dropdown-container hide">
+                        <div class="form-group">
+                            <label for="icon">Image</label>
+                            <input class="dropdown-content dropdown-switch" type="input" name="icon" placeholder="Add icon link">
+                        </div>          
+                        <button class="dropdown-content dropdown-switch" type="submit" name="submit">Add Icon</button>
+                    </div>                        
+                </form>        
+            </div>                
+        
+            <form action="log-out" method="post">
+                <button class="dropdown-content dropdown-switch">Log Out</button>
+            </form>
+          
+        </div>
+    </div>
+    <div class="logo">
+        <p>SOCIAL BLOG</p>
+    </div>
 </div>

@@ -23,6 +23,7 @@ const articleView = async (req, res) => {
                                 title: article.title,
                                 content: article.content,
                                 date: article.date,
+                                authorIcon: article.userIcon,
                                 comments: article.comments
                             })
                         }  

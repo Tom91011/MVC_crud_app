@@ -1,0 +1,27 @@
+.article-page-container {
+    margin-left: 25%;
+    width: 1200px;
+    @include flex-row(row, space-between);
+    .article-container {
+        max-width: 70%;
+        color: $primaryBeige;
+        .article-buttons {
+            @include flex-row(row, flex-start);
+            button {
+                margin-right: 10px;
+                width: 100px;
+            }
+            
+        }
+        .article-content {
+
+        }
+    }
+    .comments-container {
+        @include flex-row(column, flex-start);
+        margin-left: 50px;
+        padding-left: 20px;
+        border-left: 1px solid rgba(236,219,186, 0.8);
+        height: 100vh;
+    }
+}

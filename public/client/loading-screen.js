@@ -1,4 +1,4 @@
-const loadingMessage = document.querySelectorAll(".loading-screen h1 span")
+const loadingMessage = document.querySelectorAll(".loading-screen p span")
 let loadingMessageLetterArray = []
 
 loadingMessage.forEach((letter,i ) => {
@@ -14,6 +14,6 @@ window.onload = setTimeout(() => {
                 loadingMessage[letterIndex].classList.remove("hide")
                 loadingMessage[letterIndex].classList.add("show")
             }
-        , i *30);
+        , i *22);
     }); 
 },200)

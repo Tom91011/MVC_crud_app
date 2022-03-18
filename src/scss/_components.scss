@@ -1,7 +1,9 @@
 .loading-screen {
-    font-size: 2em;
+    font-size: 2.4em;
+    letter-spacing: 0.2em;
+    font-family: $tenorSans;
     height: 100%;
-    width: 100%;
+    width: 105%;
     background-color: $navy;
     position: fixed;
     top: 0;
@@ -12,10 +14,8 @@
     animation-name: hideLoader;
     animation-duration: 1s;
     animation-delay: 1.5s;
-    // animation-timing-function: ease-out;
     animation-fill-mode: forwards;
-    // background-image: linear-gradient($navy,  $primaryBeige);
-    h1 {
+    p {
         margin: 0;
         position: absolute;
         top: 50%;
@@ -47,14 +47,38 @@ button {
     border-radius: 10px;
     margin: 5px 0;
     padding: 10px 25px;
+    border: 1px $orange solid;
     &:hover {
-        background-color: $orange;
+        background-color: $navy;
+        color: $orange;
+        margin-left: 0;
         cursor: pointer;
     }
 }
 
-.account {
-    h1 {
+.header {
+    @include flex-row(row, space-between);
+    padding: 0 15px;
+    .account-details {
+        @include flex-row(row, space-around);
+        align-items: center;
+        justify-content: left;
+        max-width: 600px;
         margin-top: 0;
+        text-align: left;
+        img {
+            border-radius: 50%;
+            width: 50px;
+            padding: 0 15px;            
+        }        
+    }
+    .logo {
+        font-size: 2em;
+        letter-spacing: 0.2em;
+        font-family: $tenorSans;
+        padding-top: 15px;
+        p {
+            margin: 0;
+        }
     }
 }

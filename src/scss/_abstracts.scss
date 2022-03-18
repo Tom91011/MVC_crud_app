@@ -3,11 +3,15 @@ $navy: rgb(45,66,99);
 $orange: rgb(200,75,49);
 $black: rgb(25,25,25);
 
-$barlow: 'barlow';
+$barlow: 'Barlow', 'sans-serif';
+$tenorSans: 'Tenor Sans', 'sans-serif';
 
-@font-face {
-    font-family: 'Barlow', sans-serif;
-} 
+// @font-face {
+//     font-family: 'Barlow';
+//     font-style: normal;
+//     font-weight: 300;
+//     src: local();
+// } 
 
 @mixin flex-row($direction, $justifyContent) {
     display: flex;
