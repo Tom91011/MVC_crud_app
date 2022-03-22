@@ -13,12 +13,21 @@ body, html {
   color: #c84b31;
 }
 
+.wrapper {
+  overflow-x: hidden;
+  animation-name: show-scrollbar;
+  animation-fill-mode: forwards;
+  animation-delay: 2.4s;
+}
+
 body::-webkit-scrollbar {
   width: 15px;
 }
 
 body::-webkit-scrollbar-track {
   border-radius: 10px;
+  animation-fill-mode: forwards;
+  animation-delay: 2.4s;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -30,6 +39,14 @@ body::-webkit-scrollbar-thumb:hover {
   background: #c84b31;
 }
 
+@keyframes show-scrollbar {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: auto;
+  }
+}
 a:visited {
   text-decoration: none;
   color: black;

@@ -16,4 +16,4 @@ window.onload = setTimeout(() => {
             }
         , i *22);
     }); 
-},100)
+},200)
