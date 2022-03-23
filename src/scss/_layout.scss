@@ -1,3 +1,14 @@
 .wrapper {
-   padding-bottom: 20px;
+    .left-column {
+        .compose-container {
+            padding-left: 15px;
+        }
+    }
+    .right-column {
+        max-width: 20%;
+    }
+    .account-container {
+        width: 10%;
+        min-width: 200px;
+    }
 }

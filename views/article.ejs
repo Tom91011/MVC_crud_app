@@ -16,18 +16,18 @@
 <body>
  
     <section class="loading-screen">
-
+      <p><span class="hidden">L</span><span class="hidden">o</span><span class="hidden">o</span><span class="hidden">k</span><span class="hidden">i</span><span class="hidden">n</span><span class="hidden">g</span><span class="hidden"> f</span><span class="hidden">o</span><span class="hidden">r</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> a</span><span class="hidden">r</span><span class="hidden">t</span><span class="hidden">i</span><span class="hidden">c</span><span class="hidden">l</span><span class="hidden">e</span></p>
     </section>
+
     <div class="wrapper">
-      <div class="article-page-container">
-    
+      <div>
+      <div class="logo">
+        <p>SOCIAL BLOG</p>
+      </div>  
       <%- include("partials/account") -%>
-    
-  
+    </div>
 
-   
-
-  
+      
       <div class="article-container">
         <% if(authorId == userId) {%>
           <div class="article-buttons">
@@ -53,23 +53,15 @@
           <p> Comments: <%= comments.length %></p>
         </div>
       </div>
-     
-
   
     <div class="right-column">
-      
-      <div>
-        <div class="logo">
-          <p>SOCIAL BLOG</p>
-        </div>
         <div class="button-container">
         <a href="/compose">
-          <button class="new-article-button">Create New Article</button>
+          <button class="new-article-button">New Article</button>
         </a>
         <a href="/dashboard">
           <button>Dashboard</button>
         </a>
-      </div>
       </div>
       <div class="comments">
         <h1>Comments</h1>
@@ -83,13 +75,15 @@
         <div class="user-comments">
           <% comments.forEach(function(comment) { %>
             <div class="comment">
-              <div>
-                <img class="author-image-icon" src=<%= comment.commentPosterIcon %>>
-                <h2> <%= comment.commentPosterName %></h2>
-              </div>
-              
-              <h2> <%= moment(comment.date).fromNow() %></h2>
-              
+              <div class="commenter">
+                <div class="commenter-icon">
+                  <img class="author-image-icon" src=<%= comment.commentPosterIcon %>>
+                </div>
+                <div class="commenter-details">
+                  <h3> <%= comment.commentPosterName %></h3>
+                  <p> <%= moment(comment.date).fromNow() %></p>
+                </div>                
+              </div>              
               <h2> <%= comment.content %></h2>
           </div>
           <% }) %>
@@ -98,7 +92,7 @@
 
       
     </div>
-    </div>
+    <!-- </div> -->
 
 </div>
 </body>

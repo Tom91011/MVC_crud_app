@@ -11,9 +11,9 @@ window.onload = setTimeout(() => {
     loadingMessageLetterArray.forEach((letterIndex,i) => {
         setTimeout(
             function(){
-                loadingMessage[letterIndex].classList.remove("hide")
+                loadingMessage[letterIndex].classList.remove("hidden")
                 loadingMessage[letterIndex].classList.add("show")
             }
-        , i *22);
+        , i *25);
     }); 
 },200)

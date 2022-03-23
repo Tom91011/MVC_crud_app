@@ -1,0 +1,72 @@
+.edit-wrapper {
+    .compose-container {
+        margin-left: 30px;
+    }
+    .edit-article-container, .new-article-container{
+        position: relative;
+        margin: auto;
+        max-width: 1200px;
+        width: 60%;
+    } .form-group {
+        margin: auto;
+        @include flex-row(column, flex-start);
+        padding: 5px 0;
+        width: 100%;
+        label {
+            font-size: 1.2em;
+        }
+        input {
+            margin-top: 5px;
+            width: 100%;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid $orange;
+            border-radius: 10px;
+            background-color: $primaryBeige;
+        }
+        textarea {
+            margin-top: 5px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border: 2px solid $orange;
+            border-radius: 10px;
+            background-color: $primaryBeige;
+            height: 100%;
+            width: 100%;
+            overflow: visible;
+        }
+    }
+    .checkbox {
+        @include flex-row(row, flex-start);
+        align-items: center;
+        input {
+            width: 10px;
+            margin-left: 15px;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: $orange;
+        }
+    }
+}
+
+textarea::-webkit-scrollbar {
+    width: 15px;
+}
+
+textarea::-webkit-scrollbar-track{
+    border-radius: 10px;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: $orange; 
+    border-radius: 10px;
+}
+
+// textarea::-webkit-scrollbar-thumb:hover {
+//     background: $orange; 
+// }
+

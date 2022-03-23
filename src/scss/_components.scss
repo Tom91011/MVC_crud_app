@@ -2,6 +2,7 @@
     font-size: 2.4em;
     letter-spacing: 0.2em;
     font-family: $tenorSans;
+    text-align: center;
     height: 100%;
     width: 105%;
     background-color: $navy;
@@ -12,9 +13,10 @@
     transform: translateY(0);
     overflow: hidden; 
     animation-name: hideLoader;
-    animation-duration: 1s;
-    animation-delay: 1.5s;
+    animation-duration: 1.2s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
+    z-index: 2;
     p {
         margin: 0;
         position: absolute;
@@ -22,7 +24,8 @@
         left: 50%;
         transform: translate(-50%, -50%); 
         span {
-            letter-spacing: 10px;           
+            letter-spacing: 10px; 
+            width: min;          
         }     
         .show {
             animation-name: letterFade;
@@ -42,6 +45,7 @@
 }
 
 button {
+    width: 120px;
     background-color: $orange;
     border: 0;
     border-radius: 10px;
@@ -56,21 +60,25 @@ button {
     }
 }
 
-.header {
-    @include flex-row(row, space-between);
+.account-container {
+    @include flex-row(column, space-between);
     padding: 0 15px;
-    .account-details {
-        @include flex-row(row, space-around);
-        align-items: center;
-        justify-content: left;
-        max-width: 600px;
-        margin-top: 0;
-        text-align: left;
-        img {
-            border-radius: 50%;
-            width: 50px;
-            padding: 0 15px;            
-        }        
+    max-width: 200px;
+    white-space: nowrap;
+    .dropdown-switch {
+        .account-details {
+            @include flex-row(row, space-around);
+            align-items: center;
+            justify-content: left;
+            max-width: 600px;
+            margin-top: 0;
+            text-align: left;
+            img {
+                border-radius: 50%;
+                width: 50px;
+                padding: 0 15px;            
+            }        
+        }
     }
 }
 
@@ -78,8 +86,10 @@ button {
     font-size: 2em;
     letter-spacing: 0.2em;
     font-family: $tenorSans;
-    padding-top: 15px;
-    width: 304px;
+    padding: 15px 0 0 30px;
+    width: 0;
+    min-width: 0;
+    white-space: nowrap;
     p {
         margin: 0;
     }
