@@ -63,6 +63,7 @@ window.addEventListener("scroll", () => {
 socket.on('nextArticles', articles => {
     articles.forEach(article => {        
             const node = document.querySelectorAll(".article")[0]
+            console.log(article);
             const clone = node.cloneNode(true)
             const cloneNode =  document.querySelector(".articles-container").appendChild(clone)  
             cloneNode
@@ -76,7 +77,8 @@ socket.on('nextArticles', articles => {
             lastChild.querySelector(".author-image").setAttribute("src", article.userIcon)
             lastChild.querySelector(".author-name").textContent = article.userName
             lastChild.querySelector(".teaser").textContent = article.teaser
-            lastChild.classList.remove("hide")        
+            lastChild.classList.remove("hide")
+            lastChild.querySelector(".comments-total").textContent = article.comments.length
     })  
 })
 
