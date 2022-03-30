@@ -1,0 +1,55 @@
+.account-container {
+    @include flex-row(column, space-between);
+    margin: 0 30px 15px 15px;
+    padding: 0 15px;
+    max-width: 250px;
+    white-space: nowrap;
+    border: solid 1px $orange;
+    border-radius: 50px;
+    .dropdown-switch {
+        .account-details {
+            @include flex-row(row, space-around);
+            align-items: center;
+            justify-content: left;
+            width: 100%;
+            margin-top: 0;
+            text-align: left;
+            img {
+                border-radius: 50%;
+                width: 50px;
+                padding-right: 15px;            
+            }  
+            i {
+                margin: 2px 0 0 10px;
+            }
+            .fa-caret-up {
+                position: relative;
+                left: -20px;
+            }   
+        }
+        button {
+                margin-bottom: 20px;
+        }
+    }
+}
+
+.account-container:hover {
+    box-shadow: 0 0 10px $orange;
+    cursor: pointer;
+}
+
+.logo {
+    font-size: 2em;
+    letter-spacing: 0.2em;
+    font-family: $tenorSans;
+    padding: 15px 0 0 30px;
+    height: 52px;
+    width: 0;
+    min-width: 0;
+    white-space: nowrap;
+    a {
+        p {
+            margin: 0;
+        }
+    }
+}

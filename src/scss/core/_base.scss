@@ -1,0 +1,34 @@
+body, html {
+    background-color: $navy;
+    color: $orange;
+}
+
+.hide {
+    opacity: 0;
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+//  scroll bar across all pages
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body::-webkit-scrollbar-track{
+    border-radius: 10px;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: $primaryBeige; 
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: $orange; 
+}
+
