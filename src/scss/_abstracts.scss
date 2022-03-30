@@ -6,17 +6,10 @@ $black: rgb(25,25,25);
 $barlow: 'Barlow', 'sans-serif';
 $tenorSans: 'Tenor Sans', 'sans-serif';
 
-// @font-face {
-//     font-family: 'Barlow';
-//     font-style: normal;
-//     font-weight: 300;
-//     src: local();
-// } 
-
 @mixin flex-row($direction, $justifyContent) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justifyContent;
     align-items: flex-start;
-  }
+}
   

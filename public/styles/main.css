@@ -1,3 +1,8 @@
+body, html {
+  background-color: #2d4263;
+  color: #c84b31;
+}
+
 .hide {
   opacity: 0;
   display: none;
@@ -5,27 +10,6 @@
 
 .hidden {
   visibility: hidden;
-}
-
-body, html {
-  height: 1500px;
-  font-family: "Barlow", "sans-serif";
-  font-size: 16px;
-  font-weight: 400;
-  background-color: #2d4263;
-  color: #c84b31;
-}
-
-.wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  overflow: visible;
-  animation-name: show-scrollbar;
-  animation-fill-mode: forwards;
-  animation-delay: 2.4s;
 }
 
 body::-webkit-scrollbar {
@@ -45,43 +29,6 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background: #c84b31;
-}
-
-.comments::-webkit-scrollbar {
-  width: 15px;
-}
-
-.comments::-webkit-scrollbar-track {
-  border-radius: 10px;
-  animation-fill-mode: forwards;
-  animation-delay: 2.4s;
-}
-
-.comments::-webkit-scrollbar-thumb {
-  background: #ecdbba;
-  border-radius: 10px;
-}
-
-.comments::-webkit-scrollbar-thumb:hover {
-  background: #c84b31;
-}
-
-@keyframes show-scrollbar {
-  from {
-    overflow: hidden;
-  }
-  to {
-    overflow: visible;
-  }
-}
-a:visited {
-  text-decoration: none;
-  color: inherit;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -423,6 +370,105 @@ template {
   display: none;
 }
 
+body, html {
+  font-family: "Barlow", "sans-serif";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: visible;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  width: 125px;
+  background-color: #c84b31;
+  border: 0;
+  border-radius: 10px;
+  margin: 5px 0;
+  padding: 10px 25px;
+  border: 1px #c84b31 solid;
+}
+button:hover {
+  background-color: #2d4263;
+  color: #c84b31;
+  margin-left: 0;
+  cursor: pointer;
+}
+
+.account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 30px 15px 15px;
+  padding: 0 15px;
+  max-width: 250px;
+  white-space: nowrap;
+  border: solid 1px #c84b31;
+  border-radius: 50px;
+}
+.account-container .dropdown-switch .account-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  margin-top: 0;
+  text-align: left;
+}
+.account-container .dropdown-switch .account-details img {
+  border-radius: 50%;
+  width: 50px;
+  padding-right: 15px;
+}
+.account-container .dropdown-switch .account-details i {
+  margin: 2px 0 0 10px;
+}
+.account-container .dropdown-switch .account-details .fa-caret-up {
+  position: relative;
+  left: -20px;
+}
+.account-container .dropdown-switch button {
+  margin-bottom: 20px;
+}
+
+.account-container:hover {
+  box-shadow: 0 0 10px #c84b31;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 2em;
+  letter-spacing: 0.2em;
+  font-family: "Tenor Sans", "sans-serif";
+  padding: 15px 0 0 30px;
+  height: 52px;
+  width: 0;
+  min-width: 0;
+  white-space: nowrap;
+}
+.logo a p {
+  margin: 0;
+}
+
 .loading-screen {
   display: flex;
   align-items: center;
@@ -502,83 +548,10 @@ template {
     opacity: 0;
   }
 }
-button {
-  width: 125px;
-  background-color: #c84b31;
-  border: 0;
-  border-radius: 10px;
-  margin: 5px 0;
-  padding: 10px 25px;
-  border: 1px #c84b31 solid;
+.wrapper {
+  opacity: 0;
+  animation: show-articles 0.2s ease-out 2s forwards;
 }
-button:hover {
-  background-color: #2d4263;
-  color: #c84b31;
-  margin-left: 0;
-  cursor: pointer;
-}
-
-.account-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 0 30px 15px 15px;
-  padding: 0 15px;
-  max-width: 250px;
-  white-space: nowrap;
-  border: solid 1px #c84b31;
-  border-radius: 50px;
-}
-.account-container .dropdown-switch .account-details {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-start;
-  align-items: center;
-  justify-content: left;
-  width: 100%;
-  margin-top: 0;
-  text-align: left;
-}
-.account-container .dropdown-switch .account-details img {
-  border-radius: 50%;
-  width: 50px;
-  padding-right: 15px;
-}
-.account-container .dropdown-switch .account-details i {
-  margin: 2px 0 0 10px;
-}
-.account-container .dropdown-switch .account-details .fa-caret-up {
-  position: relative;
-  left: -20px;
-}
-.account-container .dropdown-switch button {
-  margin-bottom: 20px;
-}
-
-.account-container:hover {
-  box-shadow: 0 0 10px #c84b31;
-}
-
-.logo {
-  font-size: 2em;
-  letter-spacing: 0.2em;
-  font-family: "Tenor Sans", "sans-serif";
-  padding: 15px 0 0 30px;
-  height: 52px;
-  width: 0;
-  min-width: 0;
-  white-space: nowrap;
-}
-.logo a p {
-  margin: 0;
-}
-
-.account-details:hover {
-  cursor: pointer;
-}
-
 .wrapper .action-button-container {
   display: flex;
   flex-direction: column;
@@ -594,16 +567,16 @@ button:hover {
   min-width: 220px;
 }
 
-.button-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 15px;
-  width: 100%;
+@keyframes show-articles {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 .articles-container {
   position: relative;
   left: -30px;
@@ -757,25 +730,6 @@ button:hover {
     transform: translateY(0);
   }
 }
-.wrapper {
-  opacity: 0;
-  animation-name: show-articles;
-  animation-duration: 0.2s;
-  animation-delay: 0.2s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-@keyframes show-articles {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .wrapper-inner {
   display: flex;
   flex-direction: row;
@@ -869,6 +823,25 @@ button:hover {
 
 textarea:focus-visible {
   border: 2px solid #c84b31;
+}
+
+.comments::-webkit-scrollbar {
+  width: 15px;
+}
+
+.comments::-webkit-scrollbar-track {
+  border-radius: 10px;
+  animation-fill-mode: forwards;
+  animation-delay: 2.4s;
+}
+
+.comments::-webkit-scrollbar-thumb {
+  background: #ecdbba;
+  border-radius: 10px;
+}
+
+.comments::-webkit-scrollbar-thumb:hover {
+  background: #c84b31;
 }
 
 .login-container, .register-container {
