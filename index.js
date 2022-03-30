@@ -75,11 +75,3 @@ io.on('connection',
     });
   }
 );
-
-const message = []
-message.hello = "Welome to my github page, I hope you like what you see here"
-message.skills = `I work with ${["HTML5", "CSS", "Javascript", ].join('. ')}`
-message.greeting = ""
-message.contact = "Contact me at tomnightingale@hotmail.com"
-message.push(message.hello, message.greeting, message.skills, message.contact)
-console.log(message.join(', '))
