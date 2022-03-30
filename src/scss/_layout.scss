@@ -1,14 +1,13 @@
 .wrapper {
-    .left-column {
-        .compose-container {
+        .action-button-container {
+            @include flex-row(column, space-between);
             padding-left: 15px;
         }
-    }
     .right-column {
         max-width: 20%;
     }
     .account-container {
         width: 10%;
-        min-width: 200px;
+        min-width: 220px;
     }
 }

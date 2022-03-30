@@ -4,11 +4,13 @@
         <div class="account-details dropdown-switch">
             <img class="usericon dropdown-switch" src=<%= icon %> alt="Users Icon">
             <h2 class="username dropdown-switch" data=<%= userId %>><%= userName %></h2>
+            <i class="fas fa-caret-down dropdown-switch show"></i>
+            <i class="fas fa-caret-up dropdown-switch hidden"></i>
         </div>
         
         <div class="dropdown-container account-dropdown-container hide">
             <div class="change-icon-container">
-                <button class="change-icon-button dropdown-content dropdown-switch">Change My Icon</button>
+                <button class="change-icon-button dropdown-content dropdown-switch">Change Icon</button>
                 <form action="add-user-icon" method="post" class="change-icon-form">
                     <div class="dropdown-container sub-dropdown-container hide">
                         <div class="form-group">
@@ -20,9 +22,10 @@
                 </form>        
             </div>                
         
-            <form action="log-out" method="post">
+            <form action="log-out" method="post" class="logout">
                 <button class="dropdown-content dropdown-switch">Log Out</button>
             </form>
+            
           
         </div>
     </div>

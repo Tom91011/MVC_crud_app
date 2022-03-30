@@ -24,7 +24,7 @@ const articleView = async (req, res) => {
                                 content: article.content,
                                 date: article.date,
                                 authorIcon: article.userIcon,
-                                comments: article.comments
+                                comments: article.comments.reverse()
                             })
                         }  
                        renderArticle()

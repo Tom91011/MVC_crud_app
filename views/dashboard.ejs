@@ -10,24 +10,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/04a1a7d6b4.js" crossorigin="anonymous"></script>
   <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
   <title>Logged in</title>
 </head>
 
 <body>
   <section class="loading-screen">
-    <p><span class="hidden">W</span><span class="hidden">e</span><span class="hidden">l</span><span class="hidden">c</span><span class="hidden">o</span><span class="hidden">m</span><span class="hidden">e</span><span class="hidden"> t</span><span class="hidden">o</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> S</span><span class="hidden">O</span><span class="hidden">C</span><span class="hidden">I</span><span class="hidden">A</span><span class="hidden">L</span><span class="hidden"> b</span><span class="hidden">l</span><span class="hidden">o</span><span class="hidden">g</span></p>
+    <div class="loader"></div>
+    <p>
+      <span class="hidden">W</span><span class="hidden">e</span><span class="hidden">l</span><span class="hidden">c</span><span class="hidden">o</span><span class="hidden">m</span><span class="hidden">e</span><span class="hidden"> t</span><span class="hidden">o</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span>
+      <span class="hidden"> S</span><span class="hidden">O</span><span class="hidden">C</span><span class="hidden">I</span><span class="hidden">A</span><span class="hidden">L</span><span class="hidden"> B</span><span class="hidden">L</span><span class="hidden">O</span><span class="hidden">G</span></p>
   </section>
 
   <div class="logo">
-    <p>SOCIAL BLOG</p>
+    <a href="/dashboard">
+      <p>SOCIAL BLOG</p>
+    </a>
   </div>
   <div class="wrapper">
 
     <div class="left-column ">
       
       <%- include("partials/account") -%>
-      <div class="compose-container">
+      <div class="action-button-container">
         <a href="/compose">
           <button class="new-article-button">New Article</button>
         </a>
@@ -103,7 +109,7 @@
                         </div>
                       </div>
                       <div class="comments">
-                        <i class="fas fa-comments highlight-yellow"></i> 
+                        <i class="fas fa-comments"></i> 
                         <p><%= article.comments.length%></p>  
                       </div>
                     </div>

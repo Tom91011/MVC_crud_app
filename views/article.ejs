@@ -15,27 +15,34 @@
 
 <body>
  
-    <section class="loading-screen">
-      <p><span class="hidden">L</span><span class="hidden">o</span><span class="hidden">o</span><span class="hidden">k</span><span class="hidden">i</span><span class="hidden">n</span><span class="hidden">g</span><span class="hidden"> f</span><span class="hidden">o</span><span class="hidden">r</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> a</span><span class="hidden">r</span><span class="hidden">t</span><span class="hidden">i</span><span class="hidden">c</span><span class="hidden">l</span><span class="hidden">e</span></p>
-    </section>
+    <!-- <section class="loading-screen">
+      <div class="loader"></div> -->
+      <!-- <p><span class="hidden">L</span><span class="hidden">o</span><span class="hidden">o</span><span class="hidden">k</span><span class="hidden">i</span><span class="hidden">n</span><span class="hidden">g</span><span class="hidden"> f</span><span class="hidden">o</span><span class="hidden">r</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> a</span><span class="hidden">r</span><span class="hidden">t</span><span class="hidden">i</span><span class="hidden">c</span><span class="hidden">l</span><span class="hidden">e</span></p> -->
+    <!-- </section> -->
 
     <div class="wrapper">
-      <div>
-      <div class="logo">
-        <p>SOCIAL BLOG</p>
-      </div>  
-      <%- include("partials/account") -%>
-    </div>
+      <div class="wrapper-inner">
+        <div>
+          <div class="logo">
+            <a href="/dashboard">
+              <p>SOCIAL BLOG</p>
+            </a>
+          </div> 
+        <%- include("partials/account") -%>
+        <div class="action-button-container">
+          <a href="/compose">
+            <button class="new-article-button">New Article</button>
+          </a>
+          <a href="/dashboard">
+            <button>Home</button>
+          </a>
+        </div>
+      </div>
 
       
       <div class="article-container">
         <% if(authorId == userId) {%>
           <div class="article-buttons">
-            <form action="/delete" method="post">
-              <a href=<%= `/edit/${articleId}` %>>
-                <button type="submit" name="articleId" value=<%= articleId %> >Delete</button>
-              </a>
-            </form>
             <a href=<%= `/edit/${articleId}` %>>
               <button>Edit</button>
             </a>
@@ -53,16 +60,9 @@
           <p> Comments: <%= comments.length %></p>
         </div>
       </div>
-  
+    </div>
     <div class="right-column">
-        <div class="button-container">
-        <a href="/compose">
-          <button class="new-article-button">New Article</button>
-        </a>
-        <a href="/dashboard">
-          <button>Dashboard</button>
-        </a>
-      </div>
+
       <div class="comments">
         <h1>Comments</h1>
         <div class="write-comment-container">

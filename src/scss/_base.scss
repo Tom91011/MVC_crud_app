@@ -19,6 +19,7 @@ body, html {
 
 .wrapper {
     height: 100%;
+    // max-width: 70%;
     @include flex-row(row, space-between);
     overflow: visible;
     animation-name: show-scrollbar;
@@ -45,6 +46,25 @@ body::-webkit-scrollbar-thumb:hover {
     background: $orange; 
 }
 
+.comments::-webkit-scrollbar {
+    width: 15px;
+  }
+
+.comments::-webkit-scrollbar-track{
+    border-radius: 10px;
+    animation-fill-mode: forwards;
+    animation-delay: 2.4s;
+}
+.comments::-webkit-scrollbar-thumb {
+    background: $primaryBeige; 
+    border-radius: 10px;
+}
+
+.comments::-webkit-scrollbar-thumb:hover {
+    background: $orange; 
+}
+
+
 @keyframes show-scrollbar {
     from {overflow: hidden;}
     to {overflow: visible;}
@@ -52,12 +72,12 @@ body::-webkit-scrollbar-thumb:hover {
 
 a:visited { 
     text-decoration: none; 
-    color: black; 
+    color: inherit; 
 }
 
 a {
     text-decoration: none; 
-    color: black; 
+    color: inherit; 
 }
 
 

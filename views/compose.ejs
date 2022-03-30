@@ -15,12 +15,20 @@
 
 <body>
   <div class="logo">
-    <p>SOCIAL BLOG</p>
+    <a href="/dashboard">
+      <p>SOCIAL BLOG</p>
+    </a>
   </div>
   <div class="edit-wrapper">
 
-    <div class="">
+    <div class="left-column">
       <%- include("partials/account") -%>
+
+      <div class="action-button-container">
+        <a href="/dashboard">
+          <button>Home</button>
+        </a>
+      </div>
     </div> 
   
     <div class="new-article-container">

@@ -16,12 +16,14 @@
   <!-- <section class="loading-screen"></section> -->
 
   <div class="logo">
-    <p>SOCIAL BLOG</p>
+    <a href="/dashboard">
+      <p>SOCIAL BLOG</p>
+    </a>
   </div>
   <div class="edit-wrapper">
     <div class="">
       <%- include("partials/account") -%>
-      <div class="compose-container">
+      <div class="action-button-container">
         <a href="/compose">
           <button class="new-article-button">New Article</button>
         </a>
@@ -52,6 +54,11 @@
         <input type="checkbox" name="checkbox" <%= checkBoxStatus %> ></input>
       </div>
       <button type="submit" name="articleId" value=<%= id %>>Update</button>
+    </form>
+    <form action="/delete" method="post">
+      
+        <button type="submit" name="articleId" value=<%= id %> >Delete</button>
+      
     </form>
     <a href="/dashboard">
       <button>Cancel</button>

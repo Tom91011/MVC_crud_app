@@ -48,6 +48,25 @@ body::-webkit-scrollbar-thumb:hover {
   background: #c84b31;
 }
 
+.comments::-webkit-scrollbar {
+  width: 15px;
+}
+
+.comments::-webkit-scrollbar-track {
+  border-radius: 10px;
+  animation-fill-mode: forwards;
+  animation-delay: 2.4s;
+}
+
+.comments::-webkit-scrollbar-thumb {
+  background: #ecdbba;
+  border-radius: 10px;
+}
+
+.comments::-webkit-scrollbar-thumb:hover {
+  background: #c84b31;
+}
+
 @keyframes show-scrollbar {
   from {
     overflow: hidden;
@@ -58,15 +77,18 @@ body::-webkit-scrollbar-thumb:hover {
 }
 a:visited {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 .loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 2.4em;
   letter-spacing: 0.2em;
   font-family: "Tenor Sans", "sans-serif";
@@ -81,12 +103,13 @@ a {
   transform: translateY(0);
   overflow: hidden;
   animation-name: hideLoader;
-  animation-duration: 1.2s;
-  animation-delay: 2s;
+  animation-duration: 1.3s;
+  animation-delay: 1.6s;
   animation-fill-mode: forwards;
   z-index: 2;
 }
 .loading-screen p {
+  width: 500px;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -102,24 +125,47 @@ a {
   animation-duration: 0.1s;
 }
 
+.loader {
+  border: 16px solid #ecdbba;
+  border-radius: 50%;
+  border-top: 16px solid #c84b31;
+  width: 600px;
+  height: 600px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+  animation-duration: 2s;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes hideLoader {
   from {
     height: 100%;
+    opacity: 1;
   }
   to {
     height: 0;
-  }
-}
-@keyframes letterFade {
-  from {
     opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 button {
-  width: 120px;
+  width: 125px;
   background-color: #c84b31;
   border: 0;
   border-radius: 10px;
@@ -139,9 +185,12 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin: 0 30px 15px 15px;
   padding: 0 15px;
-  max-width: 200px;
+  max-width: 250px;
   white-space: nowrap;
+  border: solid 1px #c84b31;
+  border-radius: 50px;
 }
 .account-container .dropdown-switch .account-details {
   display: flex;
@@ -150,14 +199,28 @@ button:hover {
   align-items: flex-start;
   align-items: center;
   justify-content: left;
-  max-width: 600px;
+  width: 100%;
   margin-top: 0;
   text-align: left;
 }
 .account-container .dropdown-switch .account-details img {
   border-radius: 50%;
   width: 50px;
-  padding: 0 15px;
+  padding-right: 15px;
+}
+.account-container .dropdown-switch .account-details i {
+  margin: 2px 0 0 10px;
+}
+.account-container .dropdown-switch .account-details .fa-caret-up {
+  position: relative;
+  left: -20px;
+}
+.account-container .dropdown-switch button {
+  margin-bottom: 20px;
+}
+
+.account-container:hover {
+  box-shadow: 0 0 10px #c84b31;
 }
 
 .logo {
@@ -165,11 +228,12 @@ button:hover {
   letter-spacing: 0.2em;
   font-family: "Tenor Sans", "sans-serif";
   padding: 15px 0 0 30px;
+  height: 52px;
   width: 0;
   min-width: 0;
   white-space: nowrap;
 }
-.logo p {
+.logo a p {
   margin: 0;
 }
 
@@ -177,7 +241,11 @@ button:hover {
   cursor: pointer;
 }
 
-.wrapper .left-column .compose-container {
+.wrapper .action-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
   padding-left: 15px;
 }
 .wrapper .right-column {
@@ -185,7 +253,7 @@ button:hover {
 }
 .wrapper .account-container {
   width: 10%;
-  min-width: 200px;
+  min-width: 220px;
 }
 
 .button-container {
@@ -215,6 +283,7 @@ button:hover {
   animation-delay: 2.3s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  color: black;
 }
 .articles-container .article {
   margin: 15px;
@@ -350,10 +419,40 @@ button:hover {
     transform: translateY(0);
   }
 }
+.wrapper {
+  opacity: 0;
+  animation-name: show-articles;
+  animation-duration: 0.2s;
+  animation-delay: 0.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-articles {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.wrapper-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 70%;
+}
+
 .article-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   position: relative;
   padding-top: 130px;
-  left: -30px;
   max-width: 1000px;
   width: 60%;
   color: #ecdbba;
@@ -368,6 +467,9 @@ button:hover {
   margin-right: 10px;
   width: 100px;
 }
+.article-container .article-content a {
+  color: black;
+}
 .article-container .article-content .author-image-icon {
   border-radius: 50%;
 }
@@ -377,7 +479,8 @@ button:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  position: relative;
+  position: fixed;
+  right: 0;
   box-sizing: border-box;
   margin: 0 50px;
   padding-left: 20px;
@@ -386,7 +489,9 @@ button:hover {
   width: min-content;
 }
 .right-column .comments {
+  overflow: auto;
   position: sticky;
+  padding-right: 20px;
 }
 .right-column .comments .write-comment-container .submit-comment-form textarea {
   padding: 12px 20px;
@@ -462,7 +567,7 @@ textarea:focus-visible {
   margin-top: 15px;
 }
 
-.edit-wrapper .compose-container {
+.edit-wrapper .action-button-container {
   margin-left: 30px;
 }
 .edit-wrapper .edit-article-container, .edit-wrapper .new-article-container {

@@ -1,4 +1,7 @@
 .loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2.4em;
     letter-spacing: 0.2em;
     font-family: $tenorSans;
@@ -13,11 +16,12 @@
     transform: translateY(0);
     overflow: hidden; 
     animation-name: hideLoader;
-    animation-duration: 1.2s;
-    animation-delay: 2s;
+    animation-duration: 1.3s;
+    animation-delay: 1.6s;
     animation-fill-mode: forwards;
     z-index: 2;
     p {
+        width: 500px;
         margin: 0;
         position: absolute;
         top: 50%;
@@ -34,18 +38,42 @@
     }
 }
 
-@keyframes hideLoader {
-    from {height: 100%}
-    to {height: 0;}
+.loader {
+    border: 16px solid $primaryBeige;
+    border-radius: 50%;
+    border-top: 16px solid $orange;
+    width: 600px;
+    height: 600px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    animation-duration: 2s;
+    
+  }
+  
+/* Safari */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
 
-@keyframes letterFade {
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes hideLoader {
+    from {
+        height: 100%;
+        opacity: 1;
+    }
+    to {
+        height: 0;
+        opacity: 0;
+    }
 }
 
 button {
-    width: 120px;
+    width: 125px;
     background-color: $orange;
     border: 0;
     border-radius: 10px;
@@ -62,24 +90,41 @@ button {
 
 .account-container {
     @include flex-row(column, space-between);
+    margin: 0 30px 15px 15px;
     padding: 0 15px;
-    max-width: 200px;
+    max-width: 250px;
     white-space: nowrap;
+    border: solid 1px $orange;
+    border-radius: 50px;
     .dropdown-switch {
         .account-details {
             @include flex-row(row, space-around);
             align-items: center;
             justify-content: left;
-            max-width: 600px;
+           width: 100%;
             margin-top: 0;
             text-align: left;
             img {
                 border-radius: 50%;
                 width: 50px;
-                padding: 0 15px;            
-            }        
+                padding-right: 15px;            
+            }  
+            i {
+                margin: 2px 0 0 10px;
+            }
+            .fa-caret-up {
+                position: relative;
+                left: -20px;
+            }   
+        }
+        button {
+                margin-bottom: 20px;
         }
     }
+}
+
+.account-container:hover {
+    box-shadow: 0 0 10px $orange;
 }
 
 .logo {
@@ -87,12 +132,16 @@ button {
     letter-spacing: 0.2em;
     font-family: $tenorSans;
     padding: 15px 0 0 30px;
+    height: 52px;
     width: 0;
     min-width: 0;
     white-space: nowrap;
-    p {
-        margin: 0;
+    a {
+        p {
+            margin: 0;
+        }
     }
+
 }
 
 .account-details:hover {
