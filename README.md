@@ -9,7 +9,7 @@ A personal blogging website with a few extra bells and whistles, fundamentally i
 
 #### Example:   
 
-[ PRETEND SCREEN SHOT IS HERE ](public/images/loading-screen.png)
+![ PRETEND SCREEN SHOT IS HERE ](public/images/loading-screen.png)
 
 [ PRETEND OTHER SCREEN SHOT IS HERE ]
 
