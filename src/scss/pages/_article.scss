@@ -19,6 +19,11 @@
         
     }
     .article-content {
+        .article-image {
+            height:500px;
+            width: 100%;
+            object-fit: cover;
+        }
         a {
             color: black;
         }

@@ -772,6 +772,11 @@ button:hover {
   margin-right: 10px;
   width: 100px;
 }
+.article-container .article-content .article-image {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
 .article-container .article-content a {
   color: black;
 }

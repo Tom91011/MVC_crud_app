@@ -5,7 +5,6 @@
     }
 }
 
-
 .logo-account-container {
     height: 100vh;
     .account-action-buttons {
@@ -13,7 +12,6 @@
         top: 10px;
     }
 }
-
 
 .account-container {
     @include flex-row(column, space-between);

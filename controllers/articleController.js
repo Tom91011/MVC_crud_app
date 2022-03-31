@@ -21,6 +21,7 @@ const articleView = async (req, res) => {
                                 authorName: article.userName,
                                 articleId: article._id,
                                 title: article.title,
+                                image: article.image,
                                 content: article.content,
                                 date: article.date,
                                 authorIcon: article.userIcon,
