@@ -6,11 +6,9 @@
 }
 
 .logo-account-container {
-    height: 100vh;
-    .account-action-buttons {
-        position: sticky;
-        top: 10px;
-    }
+    height: 100%;
+    position: sticky;
+    top: 10px;
 }
 
 .account-container {

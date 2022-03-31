@@ -417,9 +417,7 @@ button:hover {
 }
 
 .logo-account-container {
-  height: 100vh;
-}
-.logo-account-container .account-action-buttons {
+  height: 100%;
   position: sticky;
   top: 10px;
 }
