@@ -20,12 +20,15 @@
       <p>SOCIAL BLOG</p>
     </a>
   </div>
-  <div class="edit-wrapper">
-    <div class="">
+  <div class="edit-wrapper wrapper">
+    <div class="left-column">
       <%- include("partials/account") -%>
       <div class="action-button-container">
         <a href="/compose">
           <button class="new-article-button">New Article</button>
+        </a>
+        <a href="/dashboard">
+          <button>Home</button>
         </a>
       </div>
     </div> 
@@ -68,5 +71,5 @@
 </body>
 
 <script type="module" src="/public/client/account.js"></script>
-<script type="module" src="/public/client/loading-screen.js"></script>
+<!-- <script type="module" src="/public/client/loading-screen.js"></script> -->
 </html>

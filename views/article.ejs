@@ -22,20 +22,22 @@
 
     <div class="wrapper">
       <div class="wrapper-inner">
-        <div>
+        <div class="logo-account-container">
           <div class="logo">
             <a href="/dashboard">
               <p>SOCIAL BLOG</p>
             </a>
           </div> 
-        <%- include("partials/account") -%>
-        <div class="action-button-container">
-          <a href="/compose">
-            <button class="new-article-button">New Article</button>
-          </a>
-          <a href="/dashboard">
-            <button>Home</button>
-          </a>
+        <div class="account-action-buttons">
+          <%- include("partials/account") -%>
+          <div class="action-button-container">
+            <a href="/compose">
+              <button class="new-article-button">New Article</button>
+            </a>
+            <a href="/dashboard">
+              <button>Home</button>
+            </a>
+          </div>
         </div>
       </div>
 
@@ -64,10 +66,9 @@
     <div class="right-column">
 
       <div class="comments">
-        <h1>Comments</h1>
+        <h1 class="comments-title">Comments</h1>
         <div class="write-comment-container">
-          <p>Make a comment</p>
-          <form class="submit-comment-form" action="/comment" method="post">
+           <form class="submit-comment-form" action="/comment" method="post">
             <textarea name="content" cols="30" rows="4"></textarea>        
               <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>        
           </form>

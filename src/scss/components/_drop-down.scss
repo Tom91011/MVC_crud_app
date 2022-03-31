@@ -1,3 +1,20 @@
+.wrapper {
+    .left-column {
+        position: sticky;
+        top: 10px;
+    }
+}
+
+
+.logo-account-container {
+    height: 100vh;
+    .account-action-buttons {
+        position: sticky;
+        top: 10px;
+    }
+}
+
+
 .account-container {
     @include flex-row(column, space-between);
     margin: 0 30px 15px 15px;

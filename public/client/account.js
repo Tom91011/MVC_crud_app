@@ -27,3 +27,20 @@ const showChangeIconForm = () => {
 }
 
 changeIconEl.addEventListener("click", showChangeIconForm)
+
+// minimises dropdown and subdropdown if user clicks anywhere except the dropdown element
+window.onclick = function(event) {
+  if (!event.target.matches('.dropdown-switch')) {
+      console.log("clicked outside dropdown");
+    var dropdowns = document.getElementsByClassName("dropdown-container");
+    console.log(dropdowns);
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (!openDropdown.classList.contains('hide')) {
+        openDropdown.classList.add('hide');
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}

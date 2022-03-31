@@ -7,44 +7,27 @@ socket.on('userIdRequest', () => {
     socket.emit('clientId', userId)
 })
 
-
-// minimises dropdown and subdropdown if user clicks anywhere except the dropdown element
-window.onclick = function(event) {
-    if (!event.target.matches('.dropdown-switch')) {
-        console.log("clicked outside dropdown");
-      var dropdowns = document.getElementsByClassName("dropdown-container");
-      console.log(dropdowns);
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (!openDropdown.classList.contains('hide')) {
-          openDropdown.classList.add('hide');
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-
 // Stops the scroll maybe multiple
 let throttleTimer;
 
 const handleScrollThrottle = () => {
-    const scrollBuffer = 400
-        if(window.innerHeight + window.scrollY >= document.body.scrollHeight - scrollBuffer){
-            const dataNumber = window.innerHeight + document.body.scrollTop - document.body.scrollHeight
-            const data = dataNumber + " from bottom, more content to be loaded";
-            const usernameId = document.querySelector(".username").getAttribute('data')
-            const articles = document.querySelectorAll(".article")
-            const lastArticleId = articles[articles.length-1].getAttribute('data')
-            const message = {
-                articleId: lastArticleId,
-                userId: usernameId
-            }
-            console.log("last article id is : " + lastArticleId);
-            socket.emit('loadMore', message)
-        } else {
-            // console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
-        }
+  const scrollBuffer = 400
+  
+  if(window.innerHeight + window.scrollY >= document.body.scrollHeight - scrollBuffer){
+      const dataNumber = window.innerHeight + document.body.scrollTop - document.body.scrollHeight
+      const data = dataNumber + " from bottom, more content to be loaded";
+      const usernameId = document.querySelector(".username").getAttribute('data')
+      const articles = document.querySelectorAll(".article")
+      const lastArticleId = articles[articles.length-1].getAttribute('data')
+      const message = {
+          articleId: lastArticleId,
+          userId: usernameId
+      }
+      console.log("last article id is : " + lastArticleId);
+      socket.emit('loadMore', message)
+  } else {
+      // console.log(window.innerHeight + document.body.scrollTop - document.body.scrollHeight - scrollBuffer + " to go");
+  }
 }
 
 const throttle = (handleScrollThrottle, time) => {
