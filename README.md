@@ -9,9 +9,13 @@ A personal blogging website with a few extra bells and whistles, fundamentally i
 
 #### Example:   
 
-![ PRETEND SCREEN SHOT IS HERE ](public/images/loading-screen.png)
+![ loading screen ](public/images/loading-screen.png)
+![ dashboard ](public/images/dashboard.png)
+![ article-page ](public/images/article-page.png)
+![ edit-page ](public/images/edit-page.png)
 
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+
+
 
 
 
