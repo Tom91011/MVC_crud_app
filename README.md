@@ -16,9 +16,9 @@ A personal blogging website with a few extra bells and whistles, fundamentally i
 
 
 ## Aproach
-I wanted to create a CRUD app using MVC architecture. Any user can create articles, edit or delete their own existing articles and read other users articles. On creating a new article the user can opt to make it a private, whereby only they can read it. In addition to articles, any user can comment on another users public article. 
+I wanted to create a CRUD app using MVC architecture. Any user can create, edit or delete their own existing articles and read other users articles. On creating a new article the user can opt to make it a private, whereby only they can read it. In addition to articles, any user can comment on another users public article. 
 
-The home page shows a grid view of articles, on initial load of the page a set number of articles will render in reverse chronological order, the user can scroll down where more articles will load, this can be done infinitely until there are now more articles to load
+The home page shows a grid view of articles, on initial load of the page a set number of articles will render in reverse chronological order, the user can scroll down where more articles will load, this can be done infinitely until there are now more articles to load.
 
 
 ### Infinite Scroll
@@ -27,12 +27,12 @@ The infinite scroll works by assigning a logged-in user a unique socket.io ID, t
 The rational behind pairing Socket and Mongo IDs on connection is because a user could maliciously send the server their wrong ID when scrolling down and try and access articles they're not allowed to view, but they can't change their socket.io ID, hence the pairing. 
 
 ### Security
-PassportJS is used for authentication 
+PassportJS is used for authentication. except the login page all pages are certain routes are protected and the user must first go through the req.isAuthenticated() method to determine if they are allowed to view that page. 
 
+If a user logs out a tries to press back in the browser then they will be unsuccessful in accessing the previous page, this is because I've implemented a noCache() function to stop caching and to increase sucurity.
 
-
-
-
+## Status
+Currently not opptimised for mobile and smaller screens
 
 ## Project Screen Shots
 
