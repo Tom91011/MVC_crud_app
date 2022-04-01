@@ -461,6 +461,13 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.account-help {
+  padding-left: 5px;
+}
+.account-help :hover {
+  cursor: pointer;
+}
+
 .account-container:hover {
   box-shadow: 0 0 10px #c84b31;
   cursor: pointer;
@@ -478,6 +485,45 @@ button:hover {
 }
 .logo a p {
   margin: 0;
+}
+
+.image-hosting-guide-container, .icon-image-guide-container {
+  padding: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 30px #c84b31;
+  border-radius: 25px;
+}
+.image-hosting-guide-container .close, .icon-image-guide-container .close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  padding: 10px;
+  text-align: end;
+  margin: -10px;
+}
+.image-hosting-guide-container ol, .icon-image-guide-container ol {
+  padding-left: 0;
+  width: 90%;
+}
+.image-hosting-guide-container img, .icon-image-guide-container img {
+  margin: auto;
+  max-width: 600px;
+}
+
+.close:hover {
+  cursor: pointer;
+  font-size: 2.2em;
+}
+
+.help {
+  padding-left: 5px;
+}
+.help :hover {
+  cursor: pointer;
 }
 
 .loading-screen {

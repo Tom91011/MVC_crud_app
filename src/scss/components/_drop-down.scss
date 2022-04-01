@@ -46,6 +46,13 @@
     }
 }
 
+.account-help {
+    padding-left: 5px;
+    :hover {
+    cursor: pointer;
+    }
+}
+
 .account-container:hover {
     box-shadow: 0 0 10px $orange;
     cursor: pointer;

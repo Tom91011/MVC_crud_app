@@ -31,9 +31,7 @@ changeIconEl.addEventListener("click", showChangeIconForm)
 // minimises dropdown and subdropdown if user clicks anywhere except the dropdown element
 window.onclick = function(event) {
   if (!event.target.matches('.dropdown-switch')) {
-      console.log("clicked outside dropdown");
     var dropdowns = document.getElementsByClassName("dropdown-container");
-    console.log(dropdowns);
     var i;
     for (i = 0; i < dropdowns.length; i++) {
       var openDropdown = dropdowns[i];
@@ -44,3 +42,24 @@ window.onclick = function(event) {
     }
   }
 }
+
+// Account icon image help switch and popup window
+const imageHostingGuideEl = document.body.querySelector(".icon-image-guide-container")
+const wrapper = document.body.querySelector(".wrapper")
+const closeAccountHelp = document.body.querySelector(".close-account-help")
+
+const accountHelpEl = document.body.querySelector(".account-help")
+
+const showImageHostingGuide = () => {
+    imageHostingGuideEl.classList.toggle("hide")
+    wrapper.classList.toggle("hidden")
+    console.log("clicked");
+}
+
+accountHelpEl.addEventListener("click", showImageHostingGuide)
+closeAccountHelp.addEventListener("click", showImageHostingGuide)
+
+
+
+console.log(imageHostingGuideEl);
+console.log(accountHelpEl);
