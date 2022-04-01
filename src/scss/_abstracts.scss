@@ -13,4 +13,33 @@ $tenorSans: 'Tenor Sans', 'sans-serif';
     justify-content: $justifyContent;
     align-items: flex-start;
 }
-  
+
+$breakpoint-small: 575.98px;
+$breakpoint-med-small: 767.98px;
+$breakpoint-med: 991.98px;
+$breakpoint-large: 1199.98px;
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+  @if $size == "small" {
+    @media screen and ($type + -width: $breakpoint-small) {
+      @content;
+    }
+  } @else if $size == "med-small" {
+    @media screen and ($type + -width: $breakpoint-med-small) {
+      @content;
+    }
+  } @else if $size == "med" {
+    @media screen and ($type + -width: $breakpoint-med) {
+      @content;
+    }
+  } @else if $size == "large" {
+    @media screen and ($type + -width: $breakpoint-large) {
+      @content;
+    }
+  } @else if $size == "custom" {
+    @media screen and ($type + -width: $pixels + px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

@@ -1,7 +1,10 @@
 .wrapper {
     .left-column {
         position: sticky;
-        top: 10px;
+        top: 0;
+        z-index: 1;
+        background-color: $navy;
+        border: 15px solid $navy;
     }
 }
 
@@ -13,7 +16,7 @@
 
 .account-container {
     @include flex-row(column, space-between);
-    margin: 0 30px 15px 15px;
+    // margin: 0 30px 15px 15px;
     padding: 0 15px;
     max-width: 250px;
     white-space: nowrap;
@@ -62,7 +65,7 @@
     font-size: 2em;
     letter-spacing: 0.2em;
     font-family: $tenorSans;
-    padding: 15px 0 0 30px;
+    padding: 15px 0 0 15px;
     height: 52px;
     width: 0;
     min-width: 0;
