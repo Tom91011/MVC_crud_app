@@ -22,106 +22,106 @@
       <span class="hidden">W</span><span class="hidden">e</span><span class="hidden">l</span><span class="hidden">c</span><span class="hidden">o</span><span class="hidden">m</span><span class="hidden">e</span><span class="hidden"> t</span><span class="hidden">o</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span>
       <span class="hidden"> S</span><span class="hidden">O</span><span class="hidden">C</span><span class="hidden">I</span><span class="hidden">A</span><span class="hidden">L</span><span class="hidden"> B</span><span class="hidden">L</span><span class="hidden">O</span><span class="hidden">G</span></p>
   </section>
-
+<div class="top-left">
   <div class="logo">
     <a href="/dashboard">
       <p>SOCIAL BLOG</p>
     </a>
   </div>
-  <div class="wrapper">
-    <div class="left-column account-action-buttons">
-      <%- include("partials/account") -%>
-    </div>
+
+  <div class="account-action-buttons">
+    <%- include("partials/account") -%>
     <div class="action-button-container">
       <a href="/compose">
-        <button class="new-article-button">New Article</button>
+        <button class="action-button" data-value="New Article" data-icon="<i class='fas fa-solid fa-plus'></i>">New Article</button>
       </a>
     </div>
+  </div>
+</div>
   
 
+  <div class="wrapper">
     <div class="articles-container">
-      <div class="article hide">
-        <a>
-          <div class="card">
+      <div class="articles-container-inner">
+        <div class="article hide">
+          <a>
+            <div class="card">
               <div class="card-inner">
-              <div class="card-image">
-                <img class="article-image" src="https://thumbs2.imgbox.com/f2/df/Y5csoXxA_t.png">
-                <div class="none overlay">
-                  <div class="overlay-text">
-                    <h2></h2>
-                  </div>
-                </div> 
-              </div>
-              <div class="card-info">
-                <div class="top-row-card">
-                  <h1 class="article-title"></h1>
-                  <h4 class="teaser"></h4>
+                <div class="card-image">
+                  <img class="article-image" src="https://thumbs2.imgbox.com/f2/df/Y5csoXxA_t.png">
+                  <div class="none overlay">
+                    <div class="overlay-text">
+                      <h2></h2>
+                    </div>
+                  </div> 
                 </div>
-                  <div class="bottom-row-card">
-                    <div class="author-container">
-                      <img class="author-image"  alt="">
-                      <div class="author-info">
-                        <h2 class="author-name"></h2>
-                        <p class="article-date"></p> 
-                      </div>
-                    </div>
-                    <div class="comments">
-                      <i class="fas fa-comments highlight-yellow"></i> 
-                      <p class="comments-total"></p>  
-                    </div>
+                <div class="card-info">
+                  <div class="top-row-card">
+                    <h1 class="article-title"></h1>
+                    <h4 class="teaser"></h4>
                   </div>
-              </div>         
-              </div>  
-          </div> 
-        </a> 
-      </div>
-        <% articlesToShow.forEach((article) => { %> 
-          <div class="article" data=<%= article.id %>>
-            <a href=<%= `/article/${article.id}` %> >
-              <div class="card">
-                
-                  <div <% if(article.user === userId) {%> 
-                    class="card-inner own-article"
-                    <% } else { %>
-                      class="card-inner other-user-article"
-                    <% } %> >
-                  <div class="card-image">
-                    <img class="article-image" src=<%= article.image%>>
-                    <div class="none overlay">
-                      <div class="overlay-text">
-                        <h2><%- article.teaser %></h2>
-                      </div>
-                    </div> 
-                  </div>
-                  <div class="card-info">
-                    <div class="top-row-card">
-                      <h1 class="article-title"><%= article.title.substring(0,200) %></h1>
-                      <h4 class="teaser"><%=article.teaser.substring(0,200) +" ...read more" %>%></h4>
-                    </div>
                     <div class="bottom-row-card">
                       <div class="author-container">
-                        <img class="author-image" src=<%= article.userIcon %> alt="">
+                        <img class="author-image"  alt="">
                         <div class="author-info">
-                          <h2 class="author-name"><%= article.userName%></h2>
-                          <p class="article-date"><%= moment(article.date).fromNow()  %> </p>
+                          <h2 class="author-name"></h2>
+                          <p class="article-date"></p> 
                         </div>
                       </div>
                       <div class="comments">
-                        <i class="fas fa-comments"></i> 
-                        <p class="comments-total" ><%= article.comments.length%></p>  
+                        <i class="fas fa-comments highlight-yellow"></i> 
+                        <p class="comments-total"></p>  
                       </div>
                     </div>
-                  </div>
+                  </div>         
                 </div>  
-              </div> 
-            </a> 
-          </div>
-        <% }) %> 
- 
-      
+            </div> 
+          </a> 
+        </div>
+          <% articlesToShow.forEach((article) => { %> 
+            <div class="article" data=<%= article.id %>>
+              <a href=<%= `/article/${article.id}` %> >
+                <div class="card">
+                  
+                    <div <% if(article.user === userId) {%> 
+                      class="card-inner own-article"
+                      <% } else { %>
+                        class="card-inner other-user-article"
+                      <% } %> >
+                    <div class="card-image">
+                      <img class="article-image" src=<%= article.image%>>
+                      <div class="none overlay">
+                        <div class="overlay-text">
+                          <h2><%- article.teaser %></h2>
+                        </div>
+                      </div> 
+                    </div>
+                    <div class="card-info">
+                      <div class="top-row-card">
+                        <h1 class="article-title"><%= article.title.substring(0,200) %></h1>
+                        <h4 class="teaser"><%=article.teaser.substring(0,200) +" ...read more" %>%></h4>
+                      </div>
+                      <div class="bottom-row-card">
+                        <div class="author-container">
+                          <img class="author-image" src=<%= article.userIcon %> alt="">
+                          <div class="author-info">
+                            <h2 class="author-name"><%= article.userName%></h2>
+                            <p class="article-date"><%= moment(article.date).fromNow()  %> </p>
+                          </div>
+                        </div>
+                        <div class="comments">
+                          <i class="fas fa-comments"></i> 
+                          <p class="comments-total" ><%= article.comments.length%></p>  
+                        </div>
+                      </div>
+                    </div>
+                  </div>  
+                </div> 
+              </a> 
+            </div>
+          <% }) %> 
+      </div>
     </div>
-
-   
   </div> 
 
     <!-- <a href="/logout"> <button type="submit" class="btn btn-primary btn-lg btn-block login-button">Logout</button> </a> -->

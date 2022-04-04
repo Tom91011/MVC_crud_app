@@ -20,26 +20,46 @@
       <!-- <p><span class="hidden">L</span><span class="hidden">o</span><span class="hidden">o</span><span class="hidden">k</span><span class="hidden">i</span><span class="hidden">n</span><span class="hidden">g</span><span class="hidden"> f</span><span class="hidden">o</span><span class="hidden">r</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> a</span><span class="hidden">r</span><span class="hidden">t</span><span class="hidden">i</span><span class="hidden">c</span><span class="hidden">l</span><span class="hidden">e</span></p> -->
     <!-- </section> -->
 
+    <div class="top-left">
+      <div class="logo">
+        <a href="/dashboard">
+          <p>SOCIAL BLOG</p>
+        </a>
+      </div>
+    
+      <div class="account-action-buttons">
+        <%- include("partials/account") -%>
+        <div class="action-button-container">
+          <a href="/dashboard">
+            <button class="action-button" data-value="Home" data-icon="<i class='fas fa-solid fa-house-user'></i>">Home</button>
+          </a>
+          <a href="/compose">
+            <button class="action-button" data-value="New Article" data-icon="<i class='fas fa-solid fa-plus'></i>">New Article</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <div class="wrapper">
       <div class="wrapper-inner">
-        <div class="logo-account-container">
-          <div class="logo">
+        <!-- <div class="logo-account-container"> -->
+          <!-- <div class="logo">
             <a href="/dashboard">
               <p>SOCIAL BLOG</p>
             </a>
-          </div> 
-        <div class="account-action-buttons">
+          </div>  -->
+        <!-- <div class="account-action-buttons">
           <%- include("partials/account") -%>
           <div class="action-button-container">
             <a href="/compose">
-              <button class="new-article-button">New Article</button>
+              <button class="action-button">New Article</button>
             </a>
             <a href="/dashboard">
-              <button>Home</button>
+              <button class="action-button">Home</button>
             </a>
           </div>
-        </div>
-      </div>
+        </div> -->
+      <!-- </div> -->
 
       
       <div class="article-container">
@@ -64,6 +84,10 @@
         </div>
       </div>
     </div>
+  </div>
+  <!-- </div> -->
+
+</div>
     <div class="right-column">
 
       <div class="comments">
@@ -93,10 +117,7 @@
       </div>
 
       
-    </div>
-    <!-- </div> -->
 
-</div>
 
 <%- include("partials/account-icon-guide") -%>
 </body>

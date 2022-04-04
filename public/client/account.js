@@ -43,6 +43,63 @@ window.onclick = function(event) {
   }
 }
 
+
+// Minimises logo if not at the top of the screen
+
+window.addEventListener("scroll", () => {
+
+  const logoEl = document.body.querySelector(".logo") 
+  const usernameEl = document.body.querySelector(".username")
+  const actionButtonEl = document.body.querySelector(".action-button")
+  const accountEl = document.body.querySelector(".account-container")
+
+  if(window.pageYOffset > 50 ) {
+    if(!logoEl.classList.contains("logo-hide")) {
+      logoEl.classList.add("logo-hide")
+      usernameEl.classList.add("username-hide")
+      actionButtonEl.classList.add("small-button")
+      accountEl.classList.add("account-small")
+      actionButtonEl.innerHTML = actionButtonEl.dataset.icon
+    } 
+  } else {
+    logoEl.classList.remove("logo-hide")
+    usernameEl.classList.remove("username-hide")
+    actionButtonEl.classList.remove("small-button")
+    accountEl.classList.remove("account-small")
+    actionButtonEl.textContent = actionButtonEl.dataset.value
+  }
+})
+
+
+// let throttleTimer;
+
+// const handleScrollThrottle = () => {
+//   window.addEventListener("scroll", () => {
+//     console.log(window.scrollY);
+
+//       document.body.querySelector(".logo").classList.toggle("logo-hide")
+    
+//   })
+// } 
+
+// const throttle = (handleScrollThrottle, time) => {
+//   if (throttleTimer) return;
+//     throttleTimer = true;
+//     setTimeout(() => {
+//         handleScrollThrottle();
+//         throttleTimer = false;
+//     }, time);
+// }
+ 
+// window.addEventListener("scroll", () => { 
+//   if(window.scrollY == 0) {
+//     console.log(window.scrollY == 0);
+//     throttle(handleScrollThrottle, 250);
+//   }
+// });
+
+
+
 // Account icon image help switch and popup window
 const imageHostingGuideEl = document.body.querySelector(".icon-image-guide-container")
 const wrapper = document.body.querySelector(".wrapper")
@@ -60,6 +117,3 @@ accountHelpEl.addEventListener("click", showImageHostingGuide)
 closeAccountHelp.addEventListener("click", showImageHostingGuide)
 
 
-
-console.log(imageHostingGuideEl);
-console.log(accountHelpEl);

@@ -1,11 +1,21 @@
-.wrapper {
-    .left-column {
-        position: sticky;
-        top: 0;
-        z-index: 1;
-        background-color: $navy;
-        border: 15px solid $navy;
-    }
+// .wrapper {
+//     .left-column {
+//         position: fixed;
+//         top: 0;
+//         z-index: 1;
+//         background-color: $navy;
+//         border: 15px solid $navy;
+//     }
+// }
+
+// .left-column {
+//     position: fixed;
+// }
+
+.top-left {
+    position: fixed;
+    z-index: 1;
+    margin-left: 10px;
 }
 
 .logo-account-container {
@@ -36,18 +46,19 @@
                 padding-right: 15px;            
             }  
             i {
-                margin: 2px 0 0 10px;
+                // margin: 2px 0 0 10px;
             }
-            .fa-caret-up {
-                position: relative;
-                left: -20px;
-            }   
         }
         button {
                 margin-bottom: 20px;
         }
     }
 }
+
+.fa-caret-up {
+    position: relative;
+    left: -20px;
+}   
 
 .account-help {
     padding-left: 5px;
@@ -62,10 +73,12 @@
 }
 
 .logo {
+    position: relative;
+    top: 0;
     font-size: 2em;
     letter-spacing: 0.2em;
     font-family: $tenorSans;
-    padding: 15px 0 0 15px;
+    padding: 15px 0 0 5px;
     height: 52px;
     width: 0;
     min-width: 0;
@@ -74,5 +87,72 @@
         p {
             margin: 0;
         }
+    }
+}
+
+.logo-hide {
+    height: auto;
+    position: relative;
+    top: 0;
+    animation-name: logo-hide;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes logo-hide {
+    from {
+        height: 52px;
+        top: 0
+    }
+    to {
+        height: 0;
+        top: -52px;
+    }
+}
+
+
+.username-hide {
+    width: auto;
+    position: relative;
+    top: 0;
+    animation-name: username-hide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes username-hide {
+    from {
+        width: 175px;
+        visibility: hidden;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    to {
+        width: 0;
+        visibility: hidden;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.account-small {
+    animation-name: account-small;
+    // animation-duration: 1s;
+    animation-fill-mode: forwards;
+    position: relative;
+    left: -15px;
+    img {
+        padding-right: 0 !important;
+    }
+}
+
+@keyframes account-small {
+    from {
+        border: 1px $orange solid;
+    }
+    to {
+        border: 1px $navy solid;
+        
+        
     }
 }

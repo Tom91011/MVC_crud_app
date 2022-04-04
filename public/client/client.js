@@ -48,9 +48,9 @@ socket.on('nextArticles', articles => {
             const node = document.querySelectorAll(".article")[0]
             console.log(article);
             const clone = node.cloneNode(true)
-            const cloneNode =  document.querySelector(".articles-container").appendChild(clone)  
+            const cloneNode =  document.querySelector(".articles-container-inner").appendChild(clone)  
             cloneNode
-            const articlesEl = document.querySelector(".articles-container")
+            const articlesEl = document.querySelector(".articles-container-inner")
             const lastChild = articlesEl.lastChild
             lastChild.querySelector(".article-title").textContent = article.title
             lastChild.querySelector(".article-date").textContent = moment([article.date]).fromNow()

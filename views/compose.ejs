@@ -9,26 +9,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
-  <title>Logged in</title>
+  <script src="https://kit.fontawesome.com/04a1a7d6b4.js" crossorigin="anonymous"></script>
+  <title>Write New Article</title>
 </head>
 
 <body>
-  <div class="logo">
-    <a href="/dashboard">
-      <p>SOCIAL BLOG</p>
-    </a>
+  <div class="top-left">
+    <div class="logo">
+      <a href="/dashboard">
+        <p>SOCIAL BLOG</p>
+      </a>
+    </div>
+  
+    <div class="account-action-buttons">
+      <%- include("partials/account") -%>
+      <div class="action-button-container">
+        <a href="/dashboard">
+          <button class="action-button" data-value="Home" data-icon="<i class='fas fa-solid fa-house-user'></i>">Home</button>
+        </a>
+      </div>
+    </div>
   </div>
+
   <div class="edit-wrapper wrapper">
 
-    <div class="left-column">
+    <!-- <div class="left-column">
       <%- include("partials/account") -%>
       <div class="action-button-container">
         <a href="/dashboard">
           <button>Home</button>
         </a>
       </div>
-    </div> 
+    </div>  -->
   
     <div class="new-article-container">
       <form action="/new-article" method="post">

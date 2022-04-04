@@ -1,4 +1,6 @@
 .wrapper {
+  // position: absolute;
+  @include flex-row(row, space-between);
     opacity: 0;
     animation: show-articles 0.2s ease-out 2s forwards;
     .action-button-container {
@@ -7,6 +9,9 @@
     }
     .right-column {
         max-width: 20%;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
     .account-container {
         width: 10%;

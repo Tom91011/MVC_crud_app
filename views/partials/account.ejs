@@ -3,9 +3,11 @@
     <div class="dropdown-switch">
         <div class="account-details dropdown-switch">
             <img class="usericon dropdown-switch" src=<%= icon %> alt="Users Icon">
-            <h2 class="username dropdown-switch" data=<%= userId %>><%= userName %></h2>
-            <i class="fas fa-caret-down dropdown-switch show"></i>
-            <i class="fas fa-caret-up dropdown-switch hidden"></i>
+            <h2 class="username dropdown-switch" data=<%= userId %>>
+                <%= userName %>
+                <i class="fas fa-caret-down dropdown-switch show"></i>
+                <i class="fas fa-caret-up dropdown-switch hidden"></i>
+            </h2>
         </div>
         
         <div class="dropdown-container account-dropdown-container hide">

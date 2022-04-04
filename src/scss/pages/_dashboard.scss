@@ -1,11 +1,12 @@
+.wrapper {
+    padding-top: 200px;
+}
+
 .articles-container {
     position: relative;
-    @include flex-row(row, center);
-    flex-wrap: wrap;
-    margin: 10px auto 20px auto;
-    padding-bottom: 50px;
-    width: 100%;
-    max-width: 1350px;
+    margin: auto;
+    padding: 0;
+    max-width: 1500px;
     opacity: 0;
     animation-name: show-articles;
     animation-duration: 0.6s;
@@ -13,8 +14,12 @@
     animation-timing-function: ease-out;
     animation-fill-mode: forwards;
     color: black;
+    .articles-container-inner {
+        @include flex-row(row, center);
+        flex-wrap: wrap;
+        margin: 0 40px 0 100px;
     .article {
-        margin: 15px;
+        margin: 10px;
         width: 380px;    
         height: 510px;    
         .card {        
@@ -89,6 +94,7 @@
             }
         }
     }
+}
 }
 
 @media only screen and (max-width: 600px) {
