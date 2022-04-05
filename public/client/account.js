@@ -43,33 +43,48 @@ window.onclick = function(event) {
   }
 }
 
+// Minimises logo and action buttons if not at the top of the screen
 
-// Minimises logo if not at the top of the screen
+const logoEl = document.body.querySelector(".logo") 
+const usernameEl = document.body.querySelector(".username")
+const actionButtonElements = document.body.querySelectorAll(".action-button")
+const accountEl = document.body.querySelector(".account-container")
 
-window.addEventListener("scroll", () => {
+const minmiseAccountWindow = () => {
+  logoEl.classList.add("logo-hide")
+  usernameEl.classList.add("username-hide")
+  actionButtonElements.forEach(buttonElement => {
+    buttonElement.classList.add("small-button")
+    buttonElement.innerHTML = buttonElement.dataset.icon
+  })
+  accountEl.classList.add("account-small")
+}
 
-  const logoEl = document.body.querySelector(".logo") 
-  const usernameEl = document.body.querySelector(".username")
-  const actionButtonEl = document.body.querySelector(".action-button")
-  const accountEl = document.body.querySelector(".account-container")
+const maximiseAccountWindow = () => {
+  logoEl.classList.remove("logo-hide")
+  usernameEl.classList.remove("username-hide")
+  actionButtonElements.forEach(buttonElement => {
+    buttonElement.classList.remove("small-button")
+    buttonElement.innerHTML = buttonElement.dataset.value
+  })
+  accountEl.classList.remove("account-small")    
+}
 
-  if(window.pageYOffset > 50 ) {
-    if(!logoEl.classList.contains("logo-hide")) {
-      logoEl.classList.add("logo-hide")
-      usernameEl.classList.add("username-hide")
-      actionButtonEl.classList.add("small-button")
-      accountEl.classList.add("account-small")
-      actionButtonEl.innerHTML = actionButtonEl.dataset.icon
-    } 
-  } else {
-    logoEl.classList.remove("logo-hide")
-    usernameEl.classList.remove("username-hide")
-    actionButtonEl.classList.remove("small-button")
-    accountEl.classList.remove("account-small")
-    actionButtonEl.textContent = actionButtonEl.dataset.value
-  }
-})
-
+const checkCurrentScreen = () => {
+  if(window.innerWidth < 1700 && window.innerWidth > 1200 ) {
+    if(window.pageYOffset > 50 ) {
+      minmiseAccountWindow()
+    } else {
+      maximiseAccountWindow()  
+    }
+  } else if(window.innerWidth < 1250 ) 
+      minmiseAccountWindow()
+    else if(window.innerWidth > 1700) 
+      maximiseAccountWindow()
+}
+checkCurrentScreen()
+window.addEventListener("scroll", () => checkCurrentScreen())
+window.addEventListener("resize", () => checkCurrentScreen())
 
 // let throttleTimer;
 

@@ -2,6 +2,7 @@ body, html {
   background-color: #2d4263;
   color: #c84b31;
   min-height: 100%;
+  max-width: 100%;
 }
 
 .hide {
@@ -392,6 +393,13 @@ a:visited {
   color: inherit;
 }
 
+.action-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 button {
   width: 125px;
   background-color: #c84b31;
@@ -417,6 +425,8 @@ button:hover {
   position: fixed;
   z-index: 1;
   margin-left: 10px;
+  background-color: #2d4263;
+  padding: 10px;
 }
 
 .logo-account-container {
@@ -430,11 +440,8 @@ button:hover {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 0 15px;
   max-width: 250px;
   white-space: nowrap;
-  border: solid 1px #c84b31;
-  border-radius: 50px;
 }
 .account-container .dropdown-switch .account-details {
   display: flex;
@@ -452,8 +459,15 @@ button:hover {
   width: 50px;
   padding-right: 15px;
 }
-.account-container .dropdown-switch button {
+.account-container .dropdown-switch .account-details button {
   margin-bottom: 20px;
+}
+
+.change-icon-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
 }
 
 .fa-caret-up {
@@ -469,7 +483,6 @@ button:hover {
 }
 
 .account-container:hover {
-  box-shadow: 0 0 10px #c84b31;
   cursor: pointer;
 }
 
@@ -535,7 +548,6 @@ button:hover {
   animation-name: account-small;
   animation-fill-mode: forwards;
   position: relative;
-  left: -15px;
 }
 .account-small img {
   padding-right: 0 !important;
@@ -550,16 +562,18 @@ button:hover {
   }
 }
 .image-hosting-guide-container, .icon-image-guide-container {
-  padding: 50px;
+  height: 90%;
+  padding: 20px;
   position: fixed;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  font-size: 0.7rem;
   box-shadow: 0 0 30px #c84b31;
   border-radius: 25px;
 }
-.image-hosting-guide-container .close, .icon-image-guide-container .close {
+.image-hosting-guide-container .close-account-help, .icon-image-guide-container .close-account-help {
   position: absolute;
   right: 30px;
   top: 30px;
@@ -572,8 +586,8 @@ button:hover {
   width: 90%;
 }
 .image-hosting-guide-container img, .icon-image-guide-container img {
-  margin: auto;
-  max-width: 600px;
+  width: 60%;
+  min-width: 200px;
 }
 
 .close:hover {
@@ -597,7 +611,7 @@ button:hover {
   font-family: "Tenor Sans", "sans-serif";
   text-align: center;
   height: 100%;
-  width: 105%;
+  width: 100%;
   background-color: #2d4263;
   position: fixed;
   top: 0;
@@ -640,6 +654,17 @@ button:hover {
   animation-duration: 2s;
 }
 
+@media only screen and (max-width: 750px) {
+  .loader {
+    width: 350px;
+    height: 350px;
+  }
+
+  .loading-screen p {
+    width: 350px;
+    font-size: 0.55em;
+  }
+}
 /* Safari */
 @-webkit-keyframes spin {
   0% {
@@ -672,15 +697,10 @@ button:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 150px;
+  margin: auto auto auto auto;
   opacity: 0;
   animation: show-articles 0.2s ease-out 2s forwards;
-}
-.wrapper .action-button-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding-left: 15px;
 }
 .wrapper .right-column {
   max-width: 20%;
@@ -703,10 +723,6 @@ button:hover {
     transform: translateY(0);
   }
 }
-.wrapper {
-  padding-top: 200px;
-}
-
 .articles-container {
   position: relative;
   margin: auto;
@@ -723,14 +739,16 @@ button:hover {
 .articles-container .articles-container-inner {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin: 0 40px 0 100px;
+  margin: auto;
+  width: 83%;
 }
 .articles-container .articles-container-inner .article {
   margin: 10px;
   width: 380px;
+  min-width: 300px;
   height: 510px;
 }
 .articles-container .articles-container-inner .article .card {
@@ -819,11 +837,6 @@ button:hover {
   margin: 0 5px;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-}
 .overlay {
   display: flex;
   flex-direction: row-reverse;
@@ -867,23 +880,21 @@ button:hover {
     transform: translateY(0);
   }
 }
-.wrapper-inner {
+.article-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  width: 70%;
+  height: 100%;
 }
 
 .article-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   position: relative;
-  padding-top: 130px;
-  max-width: 1000px;
-  width: 60%;
+  min-width: 300px;
+  width: 70%;
+  margin: auto;
+  padding-left: 50px;
+  padding-right: 20px;
   color: #ecdbba;
 }
 .article-container .article-buttons {
@@ -891,15 +902,20 @@ button:hover {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 80%;
+  margin: auto;
 }
 .article-container .article-buttons button {
   margin-right: 10px;
   width: 100px;
 }
+.article-container .article-content {
+  width: 80%;
+  margin: auto;
+}
 .article-container .article-content .article-image {
-  height: 500px;
-  width: 100%;
-  object-fit: cover;
+  max-width: 60%;
+  height: auto;
 }
 .article-container .article-content a {
   color: black;
@@ -908,23 +924,36 @@ button:hover {
   border-radius: 50%;
 }
 
+@media only screen and (max-width: 1000px) {
+  .article-container {
+    padding-right: 0;
+    margin: auto;
+    padding-left: 30px;
+    width: 80%;
+  }
+}
 .right-column {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  position: sticky;
+  position: fixed;
   top: 0;
   right: 0;
   box-sizing: border-box;
-  margin: 0 10px 0 0;
+  margin: 0 0 10px 50px;
   padding-left: 20px;
+  padding-right: 10px;
   border-left: 1px solid rgba(236, 219, 186, 0.8);
-  height: 100%;
+  border-bottom: 1px solid rgba(236, 219, 186, 0.8);
+  border-radius: 0 0 0 5px;
+  height: 100vh;
   width: min-content;
+  max-width: 30%;
+  font-size: 0.8rem;
 }
 .right-column .comments {
-  height: 100vh;
+  height: 98%;
   overflow: auto;
   position: sticky;
   padding-right: 20px;
@@ -940,6 +969,12 @@ button:hover {
   border-bottom: 2px solid #c84b31;
   border-bottom: 10px solid #2d4263;
 }
+.right-column .comments .write-comment-container .submit-comment-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
 .right-column .comments .write-comment-container .submit-comment-form textarea {
   padding: 12px 20px;
   box-sizing: border-box;
@@ -947,6 +982,7 @@ button:hover {
   border-radius: 10px;
   background-color: #ecdbba;
   resize: none;
+  width: 100%;
 }
 .right-column .comments .user-comments {
   width: 100%;
@@ -974,6 +1010,19 @@ button:hover {
 }
 .right-column .comments .user-comments .comment .commenter .commenter-details h3 {
   margin: 0 0 5px 0;
+}
+
+.right-column-big {
+  position: fixed;
+  right: 0;
+  background: #2d4263;
+  max-width: 70%;
+  width: 400px;
+}
+
+.hide-comments {
+  visibility: hidden;
+  width: 0;
 }
 
 .comment:last-child {
@@ -1038,13 +1087,15 @@ textarea:focus-visible {
   margin-top: 15px;
 }
 
-.edit-wrapper .edit-article-container, .edit-wrapper .new-article-container {
+.edit-article-container, .new-article-container {
   position: relative;
   margin: auto;
+  padding-top: 100px;
   max-width: 1200px;
   width: 60%;
 }
-.edit-wrapper .form-group {
+
+.form-group {
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -1053,10 +1104,10 @@ textarea:focus-visible {
   padding: 5px 0;
   width: 100%;
 }
-.edit-wrapper .form-group label {
+.form-group label {
   font-size: 1.2em;
 }
-.edit-wrapper .form-group input {
+.form-group input {
   margin-top: 5px;
   width: 100%;
   padding: 12px 20px;
@@ -1065,7 +1116,7 @@ textarea:focus-visible {
   border-radius: 10px;
   background-color: #ecdbba;
 }
-.edit-wrapper .form-group textarea {
+.form-group textarea {
   margin-top: 5px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -1076,14 +1127,15 @@ textarea:focus-visible {
   width: 100%;
   overflow: visible;
 }
-.edit-wrapper .checkbox {
+
+.checkbox {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   align-items: center;
 }
-.edit-wrapper .checkbox input {
+.checkbox input {
   width: 10px;
   margin-left: 15px;
   top: 0;

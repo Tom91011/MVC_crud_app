@@ -13,20 +13,18 @@
   <title>Logged in</title>
 </head>
 
-<body>
- 
+<body> 
     <!-- <section class="loading-screen">
       <div class="loader"></div> -->
       <!-- <p><span class="hidden">L</span><span class="hidden">o</span><span class="hidden">o</span><span class="hidden">k</span><span class="hidden">i</span><span class="hidden">n</span><span class="hidden">g</span><span class="hidden"> f</span><span class="hidden">o</span><span class="hidden">r</span><span class="hidden"> y</span><span class="hidden">o</span><span class="hidden">u</span><span class="hidden">r</span><span class="hidden"> a</span><span class="hidden">r</span><span class="hidden">t</span><span class="hidden">i</span><span class="hidden">c</span><span class="hidden">l</span><span class="hidden">e</span></p> -->
     <!-- </section> -->
-
+  <div class="article-wrapper">  
     <div class="top-left">
       <div class="logo">
         <a href="/dashboard">
           <p>SOCIAL BLOG</p>
         </a>
-      </div>
-    
+      </div>    
       <div class="account-action-buttons">
         <%- include("partials/account") -%>
         <div class="action-button-container">
@@ -36,65 +34,43 @@
           <a href="/compose">
             <button class="action-button" data-value="New Article" data-icon="<i class='fas fa-solid fa-plus'></i>">New Article</button>
           </a>
+          <button class="action-button show-comments" data-value="Show Comments" data-icon="<i class='fas fa-solid fa-comments'></i>">Show Comments</button>
         </div>
       </div>
     </div>
 
     <div class="wrapper">
       <div class="wrapper-inner">
-        <!-- <div class="logo-account-container"> -->
-          <!-- <div class="logo">
-            <a href="/dashboard">
-              <p>SOCIAL BLOG</p>
-            </a>
-          </div>  -->
-        <!-- <div class="account-action-buttons">
-          <%- include("partials/account") -%>
-          <div class="action-button-container">
-            <a href="/compose">
-              <button class="action-button">New Article</button>
-            </a>
-            <a href="/dashboard">
-              <button class="action-button">Home</button>
-            </a>
+        <div class="article-container">
+          <% if(authorId == userId) {%>
+            <div class="article-buttons">
+              <a href=<%= `/edit/${articleId}` %>>
+                <button>Edit</button>
+              </a>
+            </div>
+            <% } %>
+          <div class="article-content">
+            <div class="author">
+              <h2>Author: <%= authorName %></h2>
+              <img class="author-image-icon" src=<%= authorIcon %>>
+              <h2><%= moment(date).format('MMM Do YYYY') %></h2>
+            </div>
+          
+            <h1><%= title %></h1>
+            <img src=<%= image %> class="article-image" alt="">
+            <p><%- content %></p>
+            <p> Comments: <%= comments.length %></p>
           </div>
-        </div> -->
-      <!-- </div> -->
-
-      
-      <div class="article-container">
-        <% if(authorId == userId) {%>
-          <div class="article-buttons">
-            <a href=<%= `/edit/${articleId}` %>>
-              <button>Edit</button>
-            </a>
-          </div>
-          <% } %>
-        <div class="article-content">
-          <div class="author">
-            <h2>Author: <%= authorName %></h2>
-            <img class="author-image-icon" src=<%= authorIcon %>>
-            <h2><%= moment(date).format('MMM Do YYYY') %></h2>
-          </div>
-        
-          <h1><%= title %></h1>
-          <img src=<%= image %> class="article-image" alt="">
-          <p><%- content %></p>
-          <p> Comments: <%= comments.length %></p>
         </div>
       </div>
     </div>
-  </div>
-  <!-- </div> -->
 
-</div>
     <div class="right-column">
-
       <div class="comments">
         <h1 class="comments-title">Comments</h1>
         <div class="write-comment-container">
            <form class="submit-comment-form" action="/comment" method="post">
-            <textarea name="content" cols="30" rows="4"></textarea>        
+            <textarea name="content" rows="4"></textarea>        
               <button type="submit" name="articleId" value=<%= articleId %>>Comment</button>        
           </form>
         </div> 
@@ -115,12 +91,11 @@
           <% }) %>
         </div>
       </div>
-
-      
-
-
-<%- include("partials/account-icon-guide") -%>
+    </div>  
+    <%- include("partials/account-icon-guide") -%>
+  </div>
 </body>
 <script type="module" src="/public/client/account.js"></script>
+<script type="module" src="/public/client/comments.js"></script>
 <script type="module" src="/public/client/loading-screen.js"></script>
 </html>

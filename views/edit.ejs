@@ -9,29 +9,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
-  <title>Logged in</title>
+  <title>Social Blog</title>
 </head>
 
 <body>
   <!-- <section class="loading-screen"></section> -->
 
-  <div class="logo">
-    <a href="/dashboard">
-      <p>SOCIAL BLOG</p>
-    </a>
-  </div>
-  <div class="edit-wrapper wrapper">
-    <div class="left-column">
+  <div class="top-left">
+    <div class="logo">
+      <a href="/dashboard">
+        <p>SOCIAL BLOG</p>
+      </a>
+    </div>    
+    <div class="account-action-buttons">
       <%- include("partials/account") -%>
       <div class="action-button-container">
-        <a href="/compose">
-          <button class="action">New Article</button>
-        </a>
         <a href="/dashboard">
-          <button>Home</button>
+          <button class="action-button" data-value="Home" data-icon="<i class='fas fa-solid fa-house-user'></i>">Home</button>
+        </a>
+        <a href="/compose">
+          <button class="action-button" data-value="New Article" data-icon="<i class='fas fa-solid fa-plus'></i>">New Article</button>
         </a>
       </div>
-    </div> 
+    </div>
+  </div>
+
+
 
 
   <div class="edit-article-container">

@@ -1,7 +1,8 @@
-.edit-wrapper {
+
     .edit-article-container, .new-article-container{
         position: relative;
         margin: auto;
+        padding-top: 100px;
         max-width: 1200px;
         width: 60%;
     } .form-group {
@@ -46,7 +47,7 @@
             background-color: $orange;
         }
     }
-}
+
 
 textarea::-webkit-scrollbar {
     width: 15px;

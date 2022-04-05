@@ -7,7 +7,7 @@
     font-family: $tenorSans;
     text-align: center;
     height: 100%;
-    width: 105%;
+    width: 100%;
     background-color: $navy;
     position: fixed;
     top: 0;
@@ -38,6 +38,7 @@
     }
 }
 
+
 .loader {
     border: 16px solid $primaryBeige;
     border-radius: 50%;
@@ -49,6 +50,20 @@
     animation-duration: 2s;
     
 }
+
+@media only screen and (max-width: 750px) {
+    .loader {
+        width: 350px;
+        height: 350px;
+    }
+    .loading-screen {
+        p {
+            width: 350px;
+            font-size: 0.55em;
+        }
+    }
+  }
+
   
 /* Safari */
 @-webkit-keyframes spin {

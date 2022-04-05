@@ -1,21 +1,10 @@
-// .wrapper {
-//     .left-column {
-//         position: fixed;
-//         top: 0;
-//         z-index: 1;
-//         background-color: $navy;
-//         border: 15px solid $navy;
-//     }
-// }
-
-// .left-column {
-//     position: fixed;
-// }
-
 .top-left {
     position: fixed;
     z-index: 1;
     margin-left: 10px;
+    background-color: $navy;
+    padding: 10px;
+    // border: 1px solid $orange;
 }
 
 .logo-account-container {
@@ -27,11 +16,11 @@
 .account-container {
     @include flex-row(column, space-between);
     // margin: 0 30px 15px 15px;
-    padding: 0 15px;
+    // padding: 0 15px;
     max-width: 250px;
     white-space: nowrap;
-    border: solid 1px $orange;
-    border-radius: 50px;
+    // border: solid 1px $orange;
+    // border-radius: 50px;
     .dropdown-switch {
         .account-details {
             @include flex-row(row, space-around);
@@ -43,16 +32,17 @@
             img {
                 border-radius: 50%;
                 width: 50px;
-                padding-right: 15px;            
-            }  
-            i {
-                // margin: 2px 0 0 10px;
-            }
+                padding-right: 15px; 
         }
         button {
                 margin-bottom: 20px;
         }
     }
+}
+
+} 
+.change-icon-form {
+    @include flex-row(column, space-around);
 }
 
 .fa-caret-up {
@@ -68,7 +58,7 @@
 }
 
 .account-container:hover {
-    box-shadow: 0 0 10px $orange;
+    // box-shadow: 0 0 10px $orange;
     cursor: pointer;
 }
 
@@ -140,7 +130,6 @@
     // animation-duration: 1s;
     animation-fill-mode: forwards;
     position: relative;
-    left: -15px;
     img {
         padding-right: 0 !important;
     }

@@ -1,14 +1,15 @@
 .image-hosting-guide-container, .icon-image-guide-container{
-    padding: 50px;
+    height: 90%;
+    padding: 20px;
     position: fixed;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    
+    font-size: 0.7rem;
     box-shadow: 0 0 30px $orange;
     border-radius: 25px;
-    .close {
+    .close-account-help {
         position: absolute;
         right: 30px;
         top: 30px;
@@ -21,8 +22,8 @@
         width: 90%;
     }
     img {
-        margin: auto;
-        max-width: 600px;
+        width: 60%;
+        min-width: 200px;
     }
 }
 
