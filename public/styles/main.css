@@ -562,6 +562,7 @@ button:hover {
   }
 }
 .image-hosting-guide-container, .icon-image-guide-container {
+  background-color: #2d4263;
   height: 90%;
   padding: 20px;
   position: fixed;
