@@ -2,7 +2,7 @@
 
 Link - [The Social Blog]
 
-A personal blogging website with a few extra bells and whistles, fundamentally it's similar to [Medium.com]
+A personal blogging website with a few extra bells and whistles, fundamentally it's similar to [Medium.com].
 
 ## Technologies Used
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
@@ -27,12 +27,14 @@ The infinite scroll works by assigning a logged-in user a unique socket.io ID, t
 The rational behind pairing Socket and Mongo IDs on connection is because a user could maliciously send the server their wrong ID when scrolling down and try and access articles they're not allowed to view, but they can't change their socket.io ID, hence the pairing. 
 
 ### Security
-PassportJS is used for authentication. except the login page all pages are certain routes are protected and the user must first go through the req.isAuthenticated() method to determine if they are allowed to view that page. 
+PassportJS and bcrypt are used for authentication. With the exception of the login and register pages, all page routes are user protected and behind the scenes the user must first go through the req.isAuthenticated() method to determine if they are allowed to view that page. This is necessary to stop users accessing other peoples private blogs and also for the functionality of editing blogs. 
 
 If a user logs out a tries to press back in the browser then they will be unsuccessful in accessing the previous page, this is because I've implemented a noCache() function to stop caching and to increase sucurity.
 
+The app uses Express-Sessions, a user doesn't need to log back in if they go back to the site using the same computer, this resests after 28 days. 
+
 ## Status
-Currently not opptimised for mobile and smaller screens
+App complete and optimised for Mobile, tablets and larger screens.
 
 ## Project Screen Shots
 
