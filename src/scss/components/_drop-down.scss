@@ -1,10 +1,9 @@
 .top-left {
     position: fixed;
     z-index: 1;
-    margin-left: 10px;
+    width: 0;
     background-color: $navy;
-    padding: 10px;
-    // border: 1px solid $orange;
+    padding: 10px 0 0 10px;
 }
 
 .logo-account-container {
@@ -83,7 +82,7 @@
 .logo-hide {
     height: auto;
     position: relative;
-    top: 0;
+    padding: 0;
     animation-name: logo-hide;
     animation-duration: 0.2s;
     animation-fill-mode: forwards;
@@ -141,7 +140,5 @@
     }
     to {
         border: 1px $navy solid;
-        
-        
     }
 }

@@ -34,3 +34,8 @@ body::-webkit-scrollbar-thumb:hover {
     background: $orange; 
 }
 
+@media only screen and (max-width: 500px) {
+    body::-webkit-scrollbar {
+        width: 0;
+    }
+  }
