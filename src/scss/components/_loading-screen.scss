@@ -44,6 +44,7 @@
     border-top: 16px solid $orange;
     width: 600px;
     height: 600px;
+    box-sizing: border-box;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
     animation-duration: 2s;
@@ -52,13 +53,13 @@
 
 @media only screen and (max-width: 750px) {
     .loader {
-        width: 350px;
-        height: 350px;
+        width: 360px;
+        height: 360px;
     }
     .loading-screen {
         p {
             width: 350px;
-            font-size: 0.55em;
+            font-size: 0.52em;
         }
     }
   }

@@ -654,6 +654,7 @@ button:hover {
   border-top: 16px solid #c84b31;
   width: 600px;
   height: 600px;
+  box-sizing: border-box;
   -webkit-animation: spin 2s linear infinite;
   /* Safari */
   animation: spin 2s linear infinite;
@@ -662,13 +663,13 @@ button:hover {
 
 @media only screen and (max-width: 750px) {
   .loader {
-    width: 350px;
-    height: 350px;
+    width: 360px;
+    height: 360px;
   }
 
   .loading-screen p {
     width: 350px;
-    font-size: 0.55em;
+    font-size: 0.52em;
   }
 }
 /* Safari */
@@ -735,6 +736,7 @@ button:hover {
   position: relative;
   margin: auto;
   padding: 0;
+  width: 100%;
   max-width: 1500px;
   opacity: 0;
   animation-name: show-articles;
