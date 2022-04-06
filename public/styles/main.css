@@ -961,8 +961,8 @@ button:hover {
   border-bottom: 1px solid rgba(236, 219, 186, 0.8);
   border-radius: 0 0 0 5px;
   height: 100vh;
-  width: min-content;
-  max-width: 30%;
+  width: 300px;
+  max-width: 18%;
   font-size: 0.8rem;
 }
 .right-column .comments {
