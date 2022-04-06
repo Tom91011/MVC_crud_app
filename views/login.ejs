@@ -10,12 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Tenor+Sans&display=swap" rel="stylesheet">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
   <script src="https://kit.fontawesome.com/c03ec31dc2.js" crossorigin="anonymous"></script>
-  <title>Test</title>
+  <title>Social Blog</title>
 </head>
 
 <body>
     <div class="login-container">
         <form action="/login" method="POST">
+          <p>This login form is prepopulated with an account, feel free to use this account or create your own.</p>
+          <p>A guide to this site exists here <a href="https://github.com/Tom91011/Social-Blog">https://github.com/Tom91011/Social-Blog</a></p>
             <div class="form-group">
               <label for="email">Username</label>
               <input type="email" class="form-control" name="email" value="joe@bloggs.com">
@@ -25,7 +27,12 @@
               <input type="password" class="form-control" name="password" value="joebloggs">
             </div>
             <button type="submit" class="btn btn-dark">Login</button>
+            <a href="/register">
+              <button>Register</button>
+            </a>
           </form>
+       
+          
 
     </div>
 </body>
