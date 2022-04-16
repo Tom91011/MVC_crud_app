@@ -1070,12 +1070,12 @@ textarea:focus-visible {
 
 .login-container, .register-container {
   height: 100vh;
+  width: 20em;
+  margin: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-.login-container form, .register-container form {
-  width: 20em;
 }
 .login-container form .form-group, .register-container form .form-group {
   display: flex;
@@ -1097,9 +1097,12 @@ textarea:focus-visible {
 .login-container form label, .register-container form label {
   font-size: 2em;
 }
-.login-container form button, .register-container form button {
+.login-container .button-container, .register-container .button-container {
   width: 100%;
   margin-top: 15px;
+}
+.login-container .button-container button, .register-container .button-container button {
+  width: 100%;
 }
 
 .edit-article-container, .new-article-container {

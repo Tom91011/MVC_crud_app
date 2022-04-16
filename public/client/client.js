@@ -1,4 +1,5 @@
 let socket = io();
+console.log(socket);
 var now = moment();
 
 socket.on('userIdRequest', () => {

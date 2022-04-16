@@ -13,27 +13,30 @@
 </head>
 
 <body>
-    <div class="login-container">
-        <form action="/login" method="POST">
-          <p>This login form is prepopulated with an account, feel free to use this account or create your own.</p>
-          <p>A guide to this site exists here <a href="https://github.com/Tom91011/Social-Blog">https://github.com/Tom91011/Social-Blog</a></p>
-            <div class="form-group">
-              <label for="email">Username</label>
-              <input type="email" class="form-control" name="email" value="joe@bloggs.com">
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password" value="joebloggs">
-            </div>
-            <button type="submit" class="btn btn-dark">Login</button>
-            <a href="/register">
-              <button>Register</button>
-            </a>
-          </form>
-       
-          
-
-    </div>
+  <div class="login-container">
+    <form action="/login" method="POST">
+      <p>This login form is prepopulated with an account, feel free to use this account or create your own.</p>
+      <p>A guide to this site exists here <strong><a href="https://github.com/Tom91011/Social-Blog">https://github.com/Tom91011/Social-Blog</a></strong></p>
+      <p>For ease of use and for the purposes of demonstrating the site, emails don't need to be real and passwords can be in any format and length. The site uses bcrypt and passportjs for password protection. </p>
+        <div class="form-group">
+          <label for="email">email</label>
+          <input type="email" class="form-control" name="email" value="joe@bloggs.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" name="password" value="joebloggs">
+        </div>
+        <div class="button-container">
+          <button type="submit" class="btn btn-dark">Login</button>      
+        </div>        
+      </form>
+      <div class="button-container">
+        <a href="/register">
+          <button>Register</button>
+        </a>  
+      </div>
+     
+  </div>
 </body>
 
 </html>

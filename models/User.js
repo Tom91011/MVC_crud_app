@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
   },
   icon: {
     type: String,
-    required: true
+    required: false
     // default: "https://thumbs2.imgbox.com/89/75/rpfqD6Aj_t.png"
   }
  
