@@ -462,7 +462,9 @@ button:hover {
 .account-container .dropdown-switch .account-details img {
   border-radius: 50%;
   width: 50px;
-  padding-right: 15px;
+}
+.account-container .dropdown-switch .account-details .username {
+  padding-left: 15px;
 }
 .account-container .dropdown-switch .account-details button {
   margin-bottom: 20px;

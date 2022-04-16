@@ -11,6 +11,7 @@ const registerView = (req, res) => {
 
 const registerUser = (req, res) => {
   const { name, email, location, password, confirm } = req.body;
+  const icon = "https://thumbs2.imgbox.com/89/75/rpfqD6Aj_t.png"
 
   if (!name || !email || !password || !confirm) {
     console.log("Fill empty fields");
@@ -38,6 +39,7 @@ const registerUser = (req, res) => {
           email,
           location,
           password,
+          icon
         });
         //Password Hashing
         bcrypt.genSalt(10, (err, salt) =>
@@ -47,7 +49,7 @@ const registerUser = (req, res) => {
             newUser.password = hash;
             newUser
               .save()
-              .then(res.redirect("/"))
+              .then(res.redirect("/login"))
               .catch((err) => console.log(err));
           })
         );

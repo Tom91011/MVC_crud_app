@@ -14,12 +14,8 @@
 
 .account-container {
     @include flex-row(column, space-between);
-    // margin: 0 30px 15px 15px;
-    // padding: 0 15px;
     max-width: 250px;
     white-space: nowrap;
-    // border: solid 1px $orange;
-    // border-radius: 50px;
     .dropdown-switch {
         .account-details {
             @include flex-row(row, space-around);
@@ -31,11 +27,13 @@
             img {
                 border-radius: 50%;
                 width: 50px;
-                padding-right: 15px; 
-        }
-        button {
-                margin-bottom: 20px;
-        }
+            }
+            .username {
+                padding-left: 15px;
+            }
+            button {
+                    margin-bottom: 20px;
+            }
     }
 }
 
