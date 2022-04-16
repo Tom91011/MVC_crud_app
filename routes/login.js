@@ -16,7 +16,7 @@ router.get("/register", registerView);
 router.get("/login", loginView);
 router.get("/dashboard", protectRoute, noCache, dashboardView);
 
-router.post("/register", registerUser);
+router.post("/register", registerUser, loginUser);
 router.post("/login", loginUser);
 
 module.exports = router;

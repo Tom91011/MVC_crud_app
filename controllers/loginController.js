@@ -9,7 +9,7 @@ const registerView = (req, res) => {
 
 //Post Request for Register
 
-const registerUser = (req, res) => {
+const registerUser = (req, res, next) => {
   const { name, email, location, password, confirm } = req.body;
   const icon = "https://thumbs2.imgbox.com/89/75/rpfqD6Aj_t.png"
 
@@ -49,7 +49,7 @@ const registerUser = (req, res) => {
             newUser.password = hash;
             newUser
               .save()
-              .then(res.redirect("/login"))
+              .then(next())
               .catch((err) => console.log(err));
           })
         );
